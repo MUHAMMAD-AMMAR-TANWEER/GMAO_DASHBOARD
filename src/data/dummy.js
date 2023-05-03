@@ -1,14 +1,8 @@
 import React from 'react';
-import { AiOutlineCalendar, AiOutlineShoppingCart, AiOutlineAreaChart, AiOutlineBarChart, AiOutlineStock } from 'react-icons/ai';
-import { FiShoppingBag, FiEdit, FiPieChart, FiBarChart, FiCreditCard, FiStar, FiShoppingCart } from 'react-icons/fi';
-import { BsKanban, BsBarChart, BsBoxSeam, BsCurrencyDollar, BsShield, BsChatLeft } from 'react-icons/bs';
-import { BiColorFill } from 'react-icons/bi';
-import { IoMdContacts } from 'react-icons/io';
-import { RiContactsLine, RiStockLine } from 'react-icons/ri';
-import { MdOutlineSupervisorAccount } from 'react-icons/md';
-import { HiOutlineRefresh } from 'react-icons/hi';
+import { AiOutlineBarChart, AiOutlineStock } from 'react-icons/ai';
+import { FiCreditCard, FiStar, FiShoppingCart } from 'react-icons/fi';
+import { BsCurrencyDollar, BsShield, BsChatLeft } from 'react-icons/bs';
 import { TiTick } from 'react-icons/ti';
-import { GiLouvrePyramid } from 'react-icons/gi';
 import { GrLocation } from 'react-icons/gr';
 import avatar from './avatar.jpg';
 import avatar2 from './avatar2.jpg';
@@ -21,28 +15,22 @@ import product4 from './product4.jpg';
 import product5 from './product5.jpg';
 import product6 from './product6.jpg';
 import product7 from './product7.jpg';
-import product8 from './product8.jpg';
-import axios from 'axios';
-
-
-
-
 
 export const gridOrderImage = (props) => (
   <div>
     <img
-      className="rounded-xl h-20 md:ml-3"
+      className='rounded-xl h-20 md:ml-3'
       src={props.ProductImage}
-      alt="order-item"
+      alt='order-item'
     />
   </div>
 );
 
 export const gridOrderStatus = (props) => (
   <button
-    type="button"
+    type='button'
     style={{ background: props.StatusBg }}
-    className="text-white py-1 px-2 capitalize rounded-2xl text-md"
+    className='text-white py-1 px-2 capitalize rounded-2xl text-md'
   >
     {props.Status}
   </button>
@@ -67,18 +55,18 @@ export const kanbanGrid = [
     allowToggle: true },
 ];
 const gridEmployeeProfile = (props) => (
-  <div className="flex items-center gap-2">
+  <div className='flex items-center gap-2'>
     <img
-      className="rounded-full w-10 h-10"
+      className='rounded-full w-10 h-10'
       src={props.EmployeeImage}
-      alt="employee"
+      alt='employee'
     />
     <p>{props.Name}</p>
   </div>
 );
 
 const gridEmployeeCountry = (props) => (
-  <div className="flex items-center justify-center gap-2">
+  <div className='flex items-center justify-center gap-2'>
     <GrLocation />
     <span>{props.Country}</span>
   </div>
@@ -126,11 +114,11 @@ export const EditorData = () => (
   </div>
 );
 const customerGridImage = (props) => (
-  <div className="image flex gap-4">
+  <div className='image flex gap-4'>
     <img
-      className="rounded-full w-10 h-10"
+      className='rounded-full w-10 h-10'
       src={props.CustomerImage}
-      alt="employee"
+      alt='employee'
     />
     <div>
       <p>{props.CustomerName}</p>
@@ -140,8 +128,8 @@ const customerGridImage = (props) => (
 );
 
 const customerGridStatus = (props) => (
-  <div className="flex gap-2 justify-center items-center text-gray-700 capitalize">
-    <p style={{ background: props.StatusBg }} className="rounded-full h-3 w-3" />
+  <div className='flex gap-2 justify-center items-center text-gray-700 capitalize'>
+    <p style={{ background: props.StatusBg }} className='rounded-full h-3 w-3' />
     <p>{props.Status}</p>
   </div>
 );
@@ -168,7 +156,7 @@ export const barPrimaryXAxis = {
   valueType: 'Category',
   interval: 1,
   majorGridLines: { width: 0 },
-  labelIntersectAction: "Rotate90",
+  labelIntersectAction: 'Rotate90',
 };
 export const barPrimaryYAxis = {
   majorGridLines: { width: 0 },
@@ -521,89 +509,19 @@ export const employeesGrid = [
 ];
 
 export const links = [
-  // {
-  //   title: 'Dashboard',
-  //   links: [
-  //     {
-  //       name: 'ecommerce',
-  //       icon: <FiShoppingBag />,
-  //     },
-  //   ],
-  // },
-
-  // {
-  //   title: 'Pages',
-  //   links: [
-  //     {
-  //       name: 'orders',
-  //       icon: <AiOutlineShoppingCart />,
-  //     },
-  //     {
-  //       name: 'employees',
-  //       icon: <IoMdContacts />,
-  //     },
-  //     {
-  //       name: 'customers',
-  //       icon: <RiContactsLine />,
-  //     },
-  //   ],
-  // },
-  // {
-  //   title: 'Apps',
-  //   links: [
-  //     {
-  //       name: 'calendar',
-  //       icon: <AiOutlineCalendar />,
-  //     },
-  //     {
-  //       name: 'kanban',
-  //       icon: <BsKanban />,
-  //     },
-  //     {
-  //       name: 'editor',
-  //       icon: <FiEdit />,
-  //     },
-  //     {
-  //       name: 'color-picker',
-  //       icon: <BiColorFill />,
-  //     },
-  //   ],
-  // },
   {
-    title: 'Charts',
+    title: 'RAPPORTS',
     links: [
       {
-        name: 'line',
+        name: 'Distribution-des-pannes-sur-la-periode',
         icon: <AiOutlineStock />,
       },
-      // {
-      //   name: 'area',
-      //   icon: <AiOutlineAreaChart />,
-      // },
-
       {
-        name: 'bar',
+        name: 'Temps-de-reponses',
         icon: <AiOutlineBarChart />,
       },
-
-      // {
-      //   name: 'pie',
-      //   icon: <AiOutlineBarChart />,
-      // },
-      // {
-      //   name: 'financial',
-      //   icon: <RiStockLine />,
-      // },
-      // {
-      //   name: 'color-mapping',
-      //   icon: <BsBarChart />,
-      // },
-      // {
-      //   name: 'pyramid',
-      //   icon: <GiLouvrePyramid />,
-      // },
       {
-        name: 'horizontal-bar',
+        name: 'Distribution-des-pannes-par-type',
         icon: <AiOutlineBarChart />,
       },
     ],
@@ -666,8 +584,7 @@ export const chatData = [
 ];
 
 export const earningData = [
-  
-  
+
 ];
 
 export const recentTransactions = [
@@ -3065,8 +2982,8 @@ export const LinePrimaryXAxis = {
   edgeLabelPlacement: 'Shift',
   majorGridLines: { width: 0 },
   background: 'white',
-  labelFormat: "yyyy MMM d",
-  labelIntersectAction: "Rotate90"
+  labelFormat: 'yyyy MMM d',
+  labelIntersectAction: 'Rotate90'
 };
 
 export const LinePrimaryYAxis = {

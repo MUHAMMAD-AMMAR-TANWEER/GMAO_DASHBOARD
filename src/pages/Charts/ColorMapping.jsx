@@ -1,9 +1,9 @@
-import React from 'react';
-import { ChartComponent, SeriesCollectionDirective, SeriesDirective, Inject, ColumnSeries, Category, Tooltip, Legend, RangeColorSettingsDirective, RangeColorSettingDirective } from '@syncfusion/ej2-react-charts';
+import React from "react";
+import { ChartComponent, SeriesCollectionDirective, SeriesDirective, Inject, ColumnSeries, Category, Tooltip, Legend, RangeColorSettingsDirective, RangeColorSettingDirective } from "@syncfusion/ej2-react-charts";
 
-import { colorMappingData, ColorMappingPrimaryXAxis, ColorMappingPrimaryYAxis, rangeColorMapping } from '../../data/dummy';
-import { ChartsHeader } from '../../components';
-import { useStateContext } from '../../contexts/ContextProvider';
+import { colorMappingData, ColorMappingPrimaryXAxis, ColorMappingPrimaryYAxis, rangeColorMapping } from "../../data/dummy";
+import { ChartsHeader } from "../../components";
+import { useStateContext } from "../../contexts/ContextProvider";
 
 const ColorMapping = () => {
   const { currentMode } = useStateContext();
@@ -17,9 +17,9 @@ const ColorMapping = () => {
           primaryXAxis={ColorMappingPrimaryXAxis}
           primaryYAxis={ColorMappingPrimaryYAxis}
           chartArea={{ border: { width: 0 } }}
-          legendSettings={{ mode: 'Range', background: 'white' }}
+          legendSettings={{ mode: "Range", background: "white" }}
           tooltip={{ enable: true }}
-          background={currentMode === 'Dark' ? '#33373E' : '#fff'}
+          background={currentMode === "Dark" ? "#33373E" : "#fff"}
         >
           <Inject services={[ColumnSeries, Tooltip, Category, Legend]} />
           <SeriesCollectionDirective>
