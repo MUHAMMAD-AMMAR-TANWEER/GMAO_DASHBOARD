@@ -159,11 +159,8 @@ export const barPrimaryXAxis = {
   labelIntersectAction: 'Rotate90',
 };
 export const barPrimaryYAxis = {
-  majorGridLines: { width: 0 },
-  majorTickLines: { width: 0 },
-  lineStyle: { width: 0 },
-  labelStyle: { color: 'transparent' },
-  stripLines: [{ start: 15, end: 15.2, color: 'red', visible: true }]
+  
+  stripLines: [{ start: 15, end: 16, color: 'red', visible: true }]
 };
 const areaChartData = [
   [

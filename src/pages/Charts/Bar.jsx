@@ -13,7 +13,7 @@ import {
   
 } from '@syncfusion/ej2-react-charts';
 
-import { barPrimaryXAxis } from '../../data/dummy';
+import { barPrimaryXAxis, barPrimaryYAxis } from '../../data/dummy';
 import { ChartsHeader } from '../../components';
 import { useStateContext, StateContext } from '../../contexts/ContextProvider';
 import Bar2 from './Bar2';
@@ -43,13 +43,13 @@ const Bar = () => {
       <div className='m-4 md:m-10 mt-24 p-10 bg-white dark:bg-secondary-dark-bg rounded-3xl'>
         <ChartsHeader
           category='temps moyem de resolution ( Sensor )'
-          title={`Moyyene : ${avg1}`}
+          title={`Moyyene : ${avg1}(h)`}
         />
         <div className=' w-full'>
           {barData ? (
             <ChartComponent
               primaryXAxis={barPrimaryXAxis}
-              // primaryYAxis={barPrimaryYAxis}
+              primaryYAxis={barPrimaryYAxis}
               chartArea={{ border: { width: 0 } }}
               tooltip={{ enable: true }}
               background={currentMode === 'Dark' ? '#33373E' : '#fff'}
