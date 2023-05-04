@@ -18,7 +18,7 @@ import { useStateContext, StateContext } from '../../contexts/ContextProvider';
 import loader from '../../images/loader1.jpg';
 
 const Bar4 = () => {
-  const { bar4 } = useContext(StateContext);
+  const { bar4 ,avg4} = useContext(StateContext);
   const { currentMode } = useStateContext();
   const [barData, setBarData] = useState();
 
@@ -39,7 +39,7 @@ const Bar4 = () => {
       <div className='m-4 md:m-10 mt-24 p-10 bg-white dark:bg-secondary-dark-bg rounded-3xl'>
         <ChartsHeader
           category='Temps moyen de prise en compte ( Equipement )'
-          title={` Moyyene : ${bar4}`}
+          title={` Moyyene : ${avg4}`}
         />
         <div className=' w-full'>
           {barData ? (
