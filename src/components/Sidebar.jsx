@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState, useRef } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { SiShopware } from 'react-icons/si';
 import { MdOutlineCancel } from 'react-icons/md';
@@ -7,6 +7,7 @@ import { useStateContext, StateContext } from '../contexts/ContextProvider';
 import { links } from '../data/dummy';
 
 const Sidebar = () => {
+  const ref = useRef();
   const { startDate, endDate, updateDates } = useContext(StateContext);
   const { currentColor, activeMenu, setActiveMenu, screenSize } =
     useStateContext();
@@ -24,6 +25,9 @@ const Sidebar = () => {
   const [displayBtn, setDisplayBtn] = useState(false);
   const [startDat, setStartDat] = useState();
   const [endDat, setEndDat] = useState();
+ 
+
+  
 
   useEffect(() => {
     if (startDate && endDate) {
@@ -31,7 +35,9 @@ const Sidebar = () => {
     }
   }, [startDate, endDate]);
 
+  
   return (
+    
     <div className='ml-3 h-screen md:overflow-hidden overflow-auto md:hover:overflow-auto pb-10'>
       {activeMenu && (
         <div>
@@ -46,6 +52,7 @@ const Sidebar = () => {
             <div className='flex flex-col items-center justify-center space-y-3'>
               <div style={{ marginRight: '10px' }}>
                 <label
+                  
                   for='Start'
                   style={{}}
                   className='text-slate-900 dark:text-white font-bold'
@@ -56,9 +63,10 @@ const Sidebar = () => {
                   type='date'
                   id='Start'
                   name='Start'
+                  
                   onChange={(event) => {
+                    
                     setStartDat(new Date(event.target.value));
-
                     setDisplayBtn(true);
                   }}
                   style={{
