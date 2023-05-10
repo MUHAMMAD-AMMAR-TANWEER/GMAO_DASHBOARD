@@ -38,7 +38,7 @@ const Line = () => {
       <div className='m-4 md:m-10 mt-24 p-10 bg-white dark:bg-secondary-dark-bg rounded-3xl'>
         <ChartsHeader
           category='Distribution du nombre de pannes caméras sur la période’'
-          title='Distribution du nombre de pannes caméra sur la période'
+          title=''
         />
         <div className='w-full'>
           <LineChart />
@@ -47,7 +47,7 @@ const Line = () => {
       <div className='m-4 md:m-10 mt-24 p-10 bg-white dark:bg-secondary-dark-bg rounded-3xl'>
         <ChartsHeader
           category='Distribution du nombre de pannes equipment sur la période’'
-          title='Distribution du nombre de pannes caméra sur la période'
+          title=''
         />
         <div className='w-full'>
           <div>
