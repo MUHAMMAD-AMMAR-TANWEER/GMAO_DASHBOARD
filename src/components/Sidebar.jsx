@@ -39,8 +39,8 @@ const Sidebar = () => {
   return (
     
     <div className='ml-3 h-screen md:overflow-hidden overflow-auto md:hover:overflow-auto pb-10'>
-      {activeMenu && (
-        <div>
+      
+        <div className={activeMenu ? "block" : "hidden"}>
           <div className='flex flex-col space-y-3 justify-between items-center'>
             <Link
               to='/'
@@ -158,7 +158,7 @@ const Sidebar = () => {
             ))}
           </div>
         </div>
-      )}
+      
     </div>
   );
 };

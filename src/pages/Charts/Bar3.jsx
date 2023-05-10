@@ -10,6 +10,7 @@ import {
   ColumnSeries,
   DataLabel,
   StripLine,
+
 } from '@syncfusion/ej2-react-charts';
 
 import { barPrimaryXAxis, barPrimaryYAxis } from '../../data/dummy';
@@ -38,14 +39,17 @@ const Bar3 = () => {
     <div>
       <div className='m-4 md:m-10 mt-24 p-10 bg-white dark:bg-secondary-dark-bg rounded-3xl'>
         <ChartsHeader
-          category='Temps moyen de resolution ( Equipement )'
-          title={` Moyyene : ${avg3}(h)`}
+          category='Temps moyen de resolution ( équipements  )'
+          title={` Moyenne : ${avg3}(h)`}
         />
         <div className=' w-full'>
           {barData ? (
             <ChartComponent
               primaryXAxis={barPrimaryXAxis}
-              primaryYAxis={barPrimaryYAxis}
+              primaryYAxis={{
+  
+  stripLines: [{ start: 7, end: 8, color: 'red', visible: true }], title:"Heures"
+}}
               chartArea={{ border: { width: 0 } }}
               tooltip={{ enable: true }}
               background={currentMode === 'Dark' ? '#33373E' : '#fff'}
@@ -61,6 +65,7 @@ const Bar3 = () => {
                   StripLine,
                 ]}
               />
+            
               <SeriesCollectionDirective>
                 <SeriesDirective
                   dataSource={barData}

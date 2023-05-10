@@ -88,6 +88,7 @@ const App = () => {
                 <Route path='/color-mapping' element={<ColorMapping />} />
                 <Route path='/pyramid' element={<Pyramid />} />
                 <Route path='/Distribution-des-pannes-par-type' element={<Stacked />} />
+                <Route path='/Compteurs' element={(<Ecommerce />)} />
 
               </Routes>
             </div>

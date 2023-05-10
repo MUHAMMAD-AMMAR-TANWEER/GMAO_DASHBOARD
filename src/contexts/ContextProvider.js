@@ -62,10 +62,16 @@ export const ContextProvider = ({ children }) => {
   const [completeData, setCompletedData] = useState(null);
   const [remainingData, setRemainingData] = useState(null);
   const [totalData, setTotalData] = useState(null);
+  const [sipproData, setsipproData] = useState(null);
+  const [snefData, setsnefData] = useState(null);
+  const [mairieData, setmairieData ] = useState(null)
   // 2.
   const [completeData2, setCompletedData2] = useState(null);
   const [remainingData2, setRemainingData2] = useState(null);
   const [totalData2, setTotalData2] = useState(null);
+  const [sipproData2, setsipproData2] = useState(null);
+  const [snefData2, setsnefData2] = useState(null);
+  const [mairieData2, setmairieData2 ] = useState(null)
 
   const setMode = (e) => {
     setCurrentMode(e.target.value);
@@ -92,6 +98,9 @@ export const ContextProvider = ({ children }) => {
     setCompletedData(response.data.completed);
     setRemainingData(response.data.remaining);
     setTotalData(response.data.total);
+    setsnefData(response.data.snef);
+    setsipproData(response.data.sippro);
+    setmairieData(response.data.mairie);
     return response;
   };
 
@@ -102,6 +111,9 @@ export const ContextProvider = ({ children }) => {
     setCompletedData2(response.data.completed);
     setRemainingData2(response.data.remaining);
     setTotalData2(response.data.total);
+    setsnefData2(response.data.snef);
+    setsipproData2(response.data.sippro);
+    setmairieData2(response.data.mairie);
     return response;
   };
 
@@ -171,6 +183,11 @@ export const ContextProvider = ({ children }) => {
   useEffect(() => {
     (async () => {
       if (startDate && endDate) {
+        const tableData = await getTableData();
+        setTable(tableData);
+        const tableData2 = await getTableData2();
+        setTable2(tableData2);
+        const fetchLineData = await lineData1();
         const fetchBarData1 = await BarData1();
         setBar1(fetchBarData1);
         const fetchBarData2 = await BarData2();
@@ -183,11 +200,8 @@ export const ContextProvider = ({ children }) => {
         setHorizontalbar1(fetchHorizontalData1);
         const fetchHorizontalData2 = await HorizontalData2();
         setHorizontalbar2(fetchHorizontalData2);
-        const tableData = await getTableData();
-        setTable(tableData);
-        const tableData2 = await getTableData2();
-        setTable2(tableData2);
-        const fetchLineData = await lineData1();
+        
+
         setLine(fetchLineData);
         const fetchLineData2 = await lineData2();
         setLine2(fetchLineData2);
@@ -201,9 +215,15 @@ export const ContextProvider = ({ children }) => {
         completeData,
         remainingData,
         totalData,
+        sipproData,
+        snefData,
+        mairieData,
         completeData2,
         remainingData2,
         totalData2,
+        snefData2,
+        sipproData2,
+        mairieData2,
         table2,
         table,
         line,

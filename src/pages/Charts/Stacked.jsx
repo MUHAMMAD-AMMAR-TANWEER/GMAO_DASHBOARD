@@ -39,7 +39,7 @@ const Stacked = () => {
       </div>
       <div className="m-4 md:m-10 mt-24 p-10 bg-white dark:bg-secondary-dark-bg rounded-3xl">
         <ChartsHeader
-          category="Distibution des Pannes cameras Declarees par type"
+          category="Distribution des pannes équipements par type"
           
         />
         <div className=" w-full">

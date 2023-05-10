@@ -160,7 +160,7 @@ export const barPrimaryXAxis = {
 };
 export const barPrimaryYAxis = {
   
-  stripLines: [{ start: 15, end: 16, color: 'red', visible: true }]
+  stripLines: [{ start: 15, end: 16, color: 'red', visible: true }], title:"Heures"
 };
 const areaChartData = [
   [
@@ -521,6 +521,10 @@ export const links = [
         name: 'Distribution-des-pannes-par-type',
         icon: <AiOutlineBarChart />,
       },
+      {
+        name:"Compteurs",
+        icon:<AiOutlineBarChart />,
+      }
     ],
   },
 ];
