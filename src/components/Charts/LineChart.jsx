@@ -22,11 +22,12 @@ const LineChart = () => {
   const [lineData, setLineData] = useState();
 
   const marker = { visible: true, width: 10, height: 10 };
-  const palette = ['#E94649', '#F6B53F', '#6FAAB0', '#C4C24A'];
+  const palette = ['#E94649', '#F6B53F'];
 
   useEffect(() => {
     if (line2) {
-      setLineData(line2);      
+      setLineData(line2);
+      console.log(lineData)      
     }
   }, [line2]);
 
@@ -57,7 +58,15 @@ const LineChart = () => {
           <SeriesCollectionDirective>
             {/* eslint-disable-next-line react/jsx-props-no-spreading */}
             <SeriesDirective
-              dataSource={lineData}
+              dataSource={lineData[0]}
+              xName='x'
+              yName='y'
+              type='Line'
+              width='2'
+              marker={marker}
+            ></SeriesDirective>
+                      <SeriesDirective
+              dataSource={lineData[1]}
               xName='x'
               yName='y'
               type='Line'

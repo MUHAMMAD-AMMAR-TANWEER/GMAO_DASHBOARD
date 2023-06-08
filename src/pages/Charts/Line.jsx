@@ -25,7 +25,7 @@ const Line = () => {
   const [lineData, setLineData] = useState();
 
   const marker = { visible: true, width: 10, height: 10 };
-  const palette = ['#E94649', '#F6B53F', '#6FAAB0', '#C4C24A'];
+  const palette = ['#E94649', '#F6B53F'];
 
   useEffect(() => {
     if (line) {
@@ -73,14 +73,22 @@ const Line = () => {
                   ]}
                 />
                 <SeriesCollectionDirective>
-                  <SeriesDirective
-                    dataSource={lineData}
-                    xName='x'
-                    yName='y'
-                    type='Line'
-                    width='2'
-                    marker={marker}
-                  ></SeriesDirective>
+            <SeriesDirective
+              dataSource={lineData[0]}
+              xName='x'
+              yName='y'
+              type='Line'
+              width='2'
+              marker={marker}
+            ></SeriesDirective>
+                      <SeriesDirective
+              dataSource={lineData[1]}
+              xName='x'
+              yName='y'
+              type='Line'
+              width='2'
+              marker={marker}
+            ></SeriesDirective>
                 </SeriesCollectionDirective>
               </ChartComponent>
             ) : (

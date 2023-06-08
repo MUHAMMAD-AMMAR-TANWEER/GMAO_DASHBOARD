@@ -2991,7 +2991,7 @@ export const LinePrimaryYAxis = {
   labelFormat: '{value}',
   rangePadding: 'None',
   minimum: 0,
-  maximum: 20,
+  maximum: 25,
   interval: 1,
   lineStyle: { width: 0 },
   majorTickLines: { width: 0 },

@@ -122,7 +122,7 @@ export const ContextProvider = ({ children }) => {
     const response = await axios.get(
       `http://44.207.236.32:8000/displayequipmentTicketOpen?startDate=${startDate}&endDate=${endDate}`
     );
-    return response.data[0], response.data[1];
+    return [response.data[0], response.data[1]];
   };
 
   // Line Chart 2
@@ -130,7 +130,7 @@ export const ContextProvider = ({ children }) => {
     const response = await axios.get(
       `http://44.207.236.32:8000/displaysensorTicketOpen?startDate=${startDate}&endDate=${endDate}`
     );
-    return response.data[0], response.data[1];
+    return [response.data[0], response.data[1]];
   };
 
   // Bar Chart 1
@@ -152,7 +152,7 @@ export const ContextProvider = ({ children }) => {
   // Bar Chart 3
   const BarData3 = async () => {
     const response = await axios.get(
-      `http://44.207.236.32:8000/displayequipmentTwo?startDate=${startDate}&endDate=${endDate}`
+      `http://44.207.236.32:8000/displayequipmentOne?startDate=${startDate}&endDate=${endDate}`
     );
     setAvg3(parseFloat(response.data.avg).toFixed(2));
     return response.data.values[0];
@@ -183,11 +183,15 @@ export const ContextProvider = ({ children }) => {
   useEffect(() => {
     (async () => {
       if (startDate && endDate) {
+                const fetchLineData = await lineData1();
+        setLine(fetchLineData);
+        const fetchLineData2 = await lineData2();
+        setLine2(fetchLineData2);
         const tableData = await getTableData();
         setTable(tableData);
         const tableData2 = await getTableData2();
         setTable2(tableData2);
-        const fetchLineData = await lineData1();
+
         const fetchBarData1 = await BarData1();
         setBar1(fetchBarData1);
         const fetchBarData2 = await BarData2();
@@ -202,9 +206,7 @@ export const ContextProvider = ({ children }) => {
         setHorizontalbar2(fetchHorizontalData2);
         
 
-        setLine(fetchLineData);
-        const fetchLineData2 = await lineData2();
-        setLine2(fetchLineData2);
+        
       }
     })();
   }, [startDate, endDate]);
