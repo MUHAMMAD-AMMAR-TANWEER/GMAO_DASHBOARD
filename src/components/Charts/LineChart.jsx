@@ -22,7 +22,7 @@ const LineChart = () => {
   const [lineData, setLineData] = useState();
 
   const marker = { visible: true, width: 10, height: 10 };
-  const palette = ['#E94649', '#F6B53F'];
+  const palette = ['#33FF3F', '#FC3434'];
 
   useEffect(() => {
     if (line2) {
@@ -63,6 +63,7 @@ const LineChart = () => {
               yName='y'
               type='Line'
               width='2'
+              name="tickets luverts"
               marker={marker}
             ></SeriesDirective>
                       <SeriesDirective
@@ -71,6 +72,7 @@ const LineChart = () => {
               yName='y'
               type='Line'
               width='2'
+              name="ticket fermés"
               marker={marker}
             ></SeriesDirective>
           </SeriesCollectionDirective>
