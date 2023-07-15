@@ -5,6 +5,7 @@ import { MdOutlineCancel } from 'react-icons/md';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 import { useStateContext, StateContext } from '../contexts/ContextProvider';
 import { links } from '../data/dummy';
+import CreatePDFButton from './pdfButton';
 
 const Sidebar = () => {
   const ref = useRef();
@@ -119,6 +120,10 @@ const Sidebar = () => {
                 
                 </button>
               )}
+            </div>
+
+            <div>
+                  <CreatePDFButton/>
             </div>
 
             <TooltipComponent content='Menu' position='BottomCenter'>
