@@ -8,7 +8,7 @@ import { Ecommerce, Orders, Calendar, Employees, Stacked, Pyramid, Customers, Ka
 import './App.css';
 
 import { useStateContext } from './contexts/ContextProvider';
-import AllChart from './pages/AllChart';
+import AllGraphs from './AllGraphs';
 
 const App = () => {
   const { setCurrentColor, setCurrentMode, currentMode, activeMenu, currentColor, themeSettings, setThemeSettings } = useStateContext();
@@ -91,6 +91,7 @@ const App = () => {
                 <Route path='/pyramid' element={<Pyramid />} />
                 <Route path='/Distribution-des-pannes-par-type' element={<Stacked />} />
                 <Route path='/Compteurs' element={(<Ecommerce />)} />
+                <Route path='/allgraphsforpdf' element={(<AllGraphs/>)}/>
 
               </Routes>
             </div>

@@ -65,6 +65,7 @@ export const ContextProvider = ({ children }) => {
   const [sipproData, setsipproData] = useState(null);
   const [snefData, setsnefData] = useState(null);
   const [mairieData, setmairieData ] = useState(null)
+  const [maintenanceZefilData, setMaintenanceZefilData] = useState(null);
   // 2.
   const [completeData2, setCompletedData2] = useState(null);
   const [remainingData2, setRemainingData2] = useState(null);
@@ -72,6 +73,7 @@ export const ContextProvider = ({ children }) => {
   const [sipproData2, setsipproData2] = useState(null);
   const [snefData2, setsnefData2] = useState(null);
   const [mairieData2, setmairieData2 ] = useState(null)
+  const [maintenanceZefilData2, setMaintenanceZefilData2] = useState(null);
 
   const setMode = (e) => {
     setCurrentMode(e.target.value);
@@ -101,6 +103,7 @@ export const ContextProvider = ({ children }) => {
     setsnefData(response.data.snef);
     setsipproData(response.data.sippro);
     setmairieData(response.data.mairie);
+    setMaintenanceZefilData(response.data.maintenanceZefil)
     return response;
   };
 
@@ -114,6 +117,7 @@ export const ContextProvider = ({ children }) => {
     setsnefData2(response.data.snef);
     setsipproData2(response.data.sippro);
     setmairieData2(response.data.mairie);
+    setMaintenanceZefilData2(response.data.maintenanceZefil);
     return response;
   };
 
@@ -220,12 +224,14 @@ export const ContextProvider = ({ children }) => {
         sipproData,
         snefData,
         mairieData,
+        maintenanceZefilData,
         completeData2,
         remainingData2,
         totalData2,
         snefData2,
         sipproData2,
         mairieData2,
+        maintenanceZefilData2,
         table2,
         table,
         line,
