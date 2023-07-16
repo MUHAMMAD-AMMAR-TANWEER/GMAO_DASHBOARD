@@ -8,6 +8,7 @@ import { Ecommerce, Orders, Calendar, Employees, Stacked, Pyramid, Customers, Ka
 import './App.css';
 
 import { useStateContext } from './contexts/ContextProvider';
+import AllChart from './pages/AllChart';
 
 const App = () => {
   const { setCurrentColor, setCurrentMode, currentMode, activeMenu, currentColor, themeSettings, setThemeSettings } = useStateContext();
@@ -65,6 +66,7 @@ const App = () => {
 
               <Routes>
                 {/* dashboard  */}
+                <Route path='/allchart' element={(<AllChart />)} />
                 <Route path='/' element={(<Ecommerce />)} />
                 <Route path='/ecommerce' element={(<Ecommerce />)} />
 
