@@ -66,7 +66,6 @@ const App = () => {
 
               <Routes>
                 {/* dashboard  */}
-                <Route path='/allchart' element={(<AllChart />)} />
                 <Route path='/' element={(<Ecommerce />)} />
                 <Route path='/ecommerce' element={(<Ecommerce />)} />
 

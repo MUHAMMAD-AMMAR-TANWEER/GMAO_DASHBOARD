@@ -65,7 +65,7 @@ const generatePDF = () => {
           {barData ? (
             <div>
 
-            <CreatePDFButton/>
+
             <ChartComponent
               primaryXAxis={{
                 valueType: 'Category',

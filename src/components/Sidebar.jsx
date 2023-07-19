@@ -122,9 +122,7 @@ const Sidebar = () => {
               )}
             </div>
 
-            <div>
-                  <CreatePDFButton/>
-            </div>
+            
 
             <TooltipComponent content='Menu' position='BottomCenter'>
               <button
