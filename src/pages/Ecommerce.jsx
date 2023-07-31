@@ -417,7 +417,7 @@ const Ecommerce = () => {
                     </button>
                     {isNumbermairieData ? (
                       <p className="mt-3">
-                        <span className=" flex justify-center text-xl font-bold">
+                        <span className=" flex  justify-center text-xl font-bold">
                           {mairieData.toString()}
                         </span>
                       </p>
