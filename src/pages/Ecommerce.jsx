@@ -423,7 +423,7 @@ const Ecommerce = () => {
                       </p>
                     ) : (
                       <img
-                        className="flex justify-center ml-20 "
+                        className="flex justify-center ml-20   "
                         style={{ height: "25px" }}
                         src={loader}
                         alt="loader"
