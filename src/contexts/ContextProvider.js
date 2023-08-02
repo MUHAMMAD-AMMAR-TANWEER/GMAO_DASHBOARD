@@ -187,6 +187,10 @@ export const ContextProvider = ({ children }) => {
   useEffect(() => {
     (async () => {
       if (startDate && endDate) {
+                const fetchHorizontalData1 = await HorizontalData1();
+        setHorizontalbar1(fetchHorizontalData1);
+        const fetchHorizontalData2 = await HorizontalData2();
+        setHorizontalbar2(fetchHorizontalData2);
                 const fetchLineData = await lineData1();
         setLine(fetchLineData);
         const fetchLineData2 = await lineData2();
@@ -204,10 +208,7 @@ export const ContextProvider = ({ children }) => {
         setBar3(fetchBarData3);
         const fetchBarData4 = await BarData4();
         setBar4(fetchBarData4);
-        const fetchHorizontalData1 = await HorizontalData1();
-        setHorizontalbar1(fetchHorizontalData1);
-        const fetchHorizontalData2 = await HorizontalData2();
-        setHorizontalbar2(fetchHorizontalData2);
+
         
 
         
