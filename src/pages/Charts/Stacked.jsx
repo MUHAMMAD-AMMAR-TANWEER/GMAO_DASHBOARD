@@ -18,7 +18,7 @@ import CreatePDFButton from "../../components/pdfButton";
 import html2pdf from "html2pdf.js";
 // const BarData = async (startDate, endDate) => {
 //   const response = await axios.get(
-//     `http://44.207.236.32:8000/displaysensorFailure?startDate=${startDate}&endDate=${endDate}`
+//     `https://sippro-gmao.fr:8443/displaysensorFailure?startDate=${startDate}&endDate=${endDate}`
 //   );
 //   return response.data.values;
 // };
