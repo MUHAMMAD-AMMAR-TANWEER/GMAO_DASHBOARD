@@ -17,6 +17,7 @@ import { barPrimaryXAxis, barPrimaryYAxis } from '../../data/dummy';
 import { ChartsHeader } from '../../components';
 import { useStateContext, StateContext } from '../../contexts/ContextProvider';
 import loader from '../../images/loader1.jpg';
+import { SiShopware } from 'react-icons/si';
 
 const Bar4 = () => {
   const { bar4 ,avg4} = useContext(StateContext);
@@ -38,6 +39,9 @@ const Bar4 = () => {
   return (
     <div>
       <div className='m-4 md:m-10 mt-24 p-10 bg-white dark:bg-secondary-dark-bg rounded-3xl'>
+      <div className="items-center justify-center gap-3 mb-16  mt-4 flex text-xl font-extrabold tracking-tight dark:text-white text-slate-900">
+            <SiShopware size={30}/> <span className="text-2xl">GMAO</span>
+          </div>
         <ChartsHeader
           category='Temps moyen de prise en compte ( équipements )'
           title={` Moyenne : ${avg4}(h)`}
