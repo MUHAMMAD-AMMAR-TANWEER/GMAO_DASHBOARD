@@ -25,7 +25,7 @@ import { SiShopware } from "react-icons/si";
 // };
 
 const Stacked = () => {
-  const { horizontalbar2 } = useContext(StateContext);
+  const { horizontalbar2, startDate, endDate } = useContext(StateContext);
   const [barData, setBarData] = useState();
 
   useEffect(() => {
@@ -37,8 +37,8 @@ const Stacked = () => {
   const generatePDF = () => {
     const element = document.getElementById("bar-charts"); // Replace 'pdf-content' with the ID of the element containing the content you want to convert to PDF
     const opt = {
-      margin: [20, 0, 80, 0],
-      filename: "converted-document.pdf",
+      margin: [20, 0, 55, 0],
+      filename: `From "${formattedDateStart}" To "${formattedDateEnd}" Distribution-des-pannes-par-type.pdf`,
       image: { type: "jpeg", quality: 0.98 },
       html2canvas: { scale: 2 },
       jsPDF: { unit: "mm", format: "a3", orientation: "landscape" }, // Set orientation to 'landscape'
@@ -47,13 +47,29 @@ const Stacked = () => {
     html2pdf().from(element).set(opt).save();
   };
 
+  const dateObjectStart = new Date(startDate);
+  const dateObjectEnd = new Date(endDate);
+
+
+  const month1 = dateObjectStart.toLocaleString("en-US", { month: "short" });
+  const day1 = dateObjectStart.getDate();
+  const year1 = dateObjectStart.getFullYear();
+
+  
+  const month2 = dateObjectEnd.toLocaleString("en-US", { month: "short" });
+  const day2 = dateObjectEnd.getDate();
+  const year2 = dateObjectEnd.getFullYear();
+  
+  const formattedDateStart = `${month1} ${day1} ${year1}`;
+  const formattedDateEnd = `${month2} ${day2} ${year2}`;
+
   return (
     <div>
       <button
         className=" absolute top-0 right-0 transform -translate-x-1/2 mt-2 bg-blue-500 text-white px-4 py-2 rounded"
         onClick={generatePDF}
       >
-        Generate PDF
+      Générer PDF
       </button>
       <div id="bar-charts">
         <div id="bar-charts" className="w-full">

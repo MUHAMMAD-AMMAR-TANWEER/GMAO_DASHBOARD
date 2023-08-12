@@ -22,7 +22,7 @@ import loader from "../../images/loader1.jpg";
 import html2pdf from "html2pdf.js";
 import { SiShopware } from "react-icons/si";
 const Bar = () => {
-  const { bar1, avg1 } = useContext(StateContext);
+  const { bar1, avg1, startDate, endDate } = useContext(StateContext);
   const { currentMode } = useStateContext();
   const [barData, setBarData] = useState();
 
@@ -41,8 +41,8 @@ const Bar = () => {
   const generatePDF = () => {
     const element = document.getElementById("vertical-bar-charts"); // Replace 'pdf-content' with the ID of the element containing the content you want to convert to PDF
     const opt = {
-      margin: [15,0,70,0],
-      filename: "verticalbar-document.pdf",
+      margin: [15,0,65,0],
+      filename: `From "${formattedDateStart}" To "${formattedDateEnd}" Temps-de-reponses.pdf`,
       image: { type: "jpeg", quality: 0.98 },
       html2canvas: { scale: 2 },
       jsPDF: { unit: "mm", format: "a3", orientation: "landscape" }, // Set orientation to 'landscape'
@@ -51,13 +51,29 @@ const Bar = () => {
     html2pdf().from(element).set(opt).save();
   };
 
+  const dateObjectStart = new Date(startDate);
+  const dateObjectEnd = new Date(endDate);
+
+
+  const month1 = dateObjectStart.toLocaleString("en-US", { month: "short" });
+  const day1 = dateObjectStart.getDate();
+  const year1 = dateObjectStart.getFullYear();
+
+  
+  const month2 = dateObjectEnd.toLocaleString("en-US", { month: "short" });
+  const day2 = dateObjectEnd.getDate();
+  const year2 = dateObjectEnd.getFullYear();
+  
+  const formattedDateStart = `${month1} ${day1} ${year1}`;
+  const formattedDateEnd = `${month2} ${day2} ${year2}`;
+
   return (
     <div>
       <button
         className=" absolute top-0 right-0 transform -translate-x-1/2 mt-2 bg-blue-500 text-white px-4 py-2 rounded"
         onClick={generatePDF}
       >
-        Generate PDF
+      Générer PDF
       </button>
       <div id="vertical-bar-charts">
         <div className="m-4 md:m-10 mt-24 p-10 bg-white dark:bg-secondary-dark-bg rounded-3xl">

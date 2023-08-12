@@ -22,7 +22,7 @@ import html2pdf from "html2pdf.js";
 import { SiShopware } from "react-icons/si";
 
 const Line = () => {
-  const { line } = useContext(StateContext);
+  const { line, startDate, endDate } = useContext(StateContext);
   const { currentMode } = useStateContext();
   const [lineData, setLineData] = useState();
 
@@ -35,11 +35,14 @@ const Line = () => {
     }
   }, [line]);
 
+  console.log("StartDate", startDate);
+  console.log("endDate", endDate);
+
   const generatePDF = () => {
     const element = document.getElementById("line-chart"); // Replace 'pdf-content' with the ID of the element containing the content you want to convert to PDF
     const opt = {
-      margin: [35,0,65, 0],
-      filename: "converted-document.pdf",
+      margin: [35, 0, 55, 0],
+      filename: `From "${formattedDateStart}" To "${formattedDateEnd}" Distribution-des-pannes-sur-la-periode.pdf`,
       image: { type: "jpeg", quality: 0.98 },
       html2canvas: { scale: 1 },
       jsPDF: { unit: "mm", format: "a3", orientation: "landscape" }, // Set orientation to 'landscape'
@@ -48,31 +51,48 @@ const Line = () => {
     html2pdf().from(element).set(opt).save();
   };
 
+  const dateObjectStart = new Date(startDate);
+  const dateObjectEnd = new Date(endDate);
+
+
+  const month1 = dateObjectStart.toLocaleString("en-US", { month: "short" });
+  const day1 = dateObjectStart.getDate();
+  const year1 = dateObjectStart.getFullYear();
+
+  
+  const month2 = dateObjectEnd.toLocaleString("en-US", { month: "short" });
+  const day2 = dateObjectEnd.getDate();
+  const year2 = dateObjectEnd.getFullYear();
+  
+  const formattedDateStart = `${month1} ${day1} ${year1}`;
+  const formattedDateEnd = `${month2} ${day2} ${year2}`;
+
+
   return (
     <div>
+      
       <button
         className=" absolute top-0 right-0 transform -translate-x-1/2 mt-2 bg-blue-500 text-white px-4 py-2 rounded"
         onClick={generatePDF}
       >
-        Generate PDF
+      Générer PDF
       </button>
       <div id="line-chart">
         <div className="m-4 md:m-10 mt-24 p-10 bg-white dark:bg-secondary-dark-bg rounded-3xl">
           <div className="items-center justify-center gap-3 mb-16  mt-4 flex text-xl font-extrabold tracking-tight dark:text-white text-slate-900">
-            <SiShopware size={30}/> <span className="text-2xl">GMAO</span>
+            <SiShopware size={30} /> <span className="text-2xl">GMAO</span>
           </div>
           <ChartsHeader
             category="Distribution du nombre de pannes caméras sur la période"
             title=""
           />
           <div className="w-full">
-          
             <LineChart />
           </div>
         </div>
         <div className="m-4 md:m-10 mt-24 p-10 bg-white dark:bg-secondary-dark-bg rounded-3xl">
-        <div className="items-center justify-center gap-3 mb-16  mt-4 flex text-xl font-extrabold tracking-tight dark:text-white text-slate-900">
-            <SiShopware size={30}/> <span className="text-2xl">GMAO</span>
+          <div className="items-center justify-center gap-3 mb-16  mt-4 flex text-xl font-extrabold tracking-tight dark:text-white text-slate-900">
+            <SiShopware size={30} /> <span className="text-2xl">GMAO</span>
           </div>
           <ChartsHeader
             category="Distribution du nombre de pannes equipment sur la période"
