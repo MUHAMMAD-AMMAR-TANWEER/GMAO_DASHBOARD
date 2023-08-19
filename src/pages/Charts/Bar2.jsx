@@ -19,7 +19,7 @@ import { barPrimaryXAxis, barPrimaryYAxis } from '../../data/dummy';
 import { ChartsHeader } from '../../components';
 import { useStateContext, StateContext } from '../../contexts/ContextProvider';
 import loader from '../../images/loader1.jpg';
-import { SiShopware } from 'react-icons/si';
+import logo from "../../images/Logo_Toulouse.png"
 
 const Bar2 = () => {
   const { bar2, avg2 } = useContext(StateContext);
@@ -42,7 +42,7 @@ const Bar2 = () => {
     <div>
       <div className='m-4 md:m-10 mt-24 p-10 bg-white dark:bg-secondary-dark-bg rounded-3xl'>
       <div className="items-center justify-center gap-3 mb-16  mt-4 flex text-xl font-extrabold tracking-tight dark:text-white text-slate-900">
-            <SiShopware size={30}/> <span className="text-2xl">GMAO</span>
+      <img src={logo} style={{height:"75px", width:"95px"}} alt="logo"/>
           </div>
         <ChartsHeader
           category='Temps moyen de prise en compte (Caméras)'

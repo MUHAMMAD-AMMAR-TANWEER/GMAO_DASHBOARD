@@ -18,6 +18,9 @@ import { useContext } from "react";
 import loader from "../images/loader1.jpg";
 import PDFDocument from "../components/pdfButton";
 import html2pdf from "html2pdf.js";
+import logo from "../images/Logo_Toulouse.png"
+
+
 const DropDown = ({ currentMode }) => (
   <div className="w-28 border-1 border-color px-2 py-1 rounded-md">
     <DropDownListComponent
@@ -74,15 +77,33 @@ const Ecommerce = () => {
   const generatePDF = () => {
     const element = document.getElementById("table-data"); // Replace 'pdf-content' with the ID of the element containing the content you want to convert to PDF
     const opt = {
-      margin: 0,
-      filename: "table-document.pdf",
+      margin: [0,50,50,0],
+      filename: `${formattedDateStart} - ${formattedDateEnd} Competeurs.pdf`,
       image: { type: "jpeg", quality: 0.98 },
       html2canvas: { scale: 2 },
-      jsPDF: { unit: "mm", format: "a4", orientation: "landscape" }, // Set orientation to 'landscape'
+      jsPDF: { unit: "mm", format: "a3", orientation: "landscape" }, // Set orientation to 'landscape'
     };
 
     html2pdf().from(element).set(opt).save();
   };
+
+
+
+  const dateObjectStart = new Date(startDate);
+  const dateObjectEnd = new Date(endDate);
+
+
+  const month1 = dateObjectStart.toLocaleString("en-US", { month: "short" });
+  const day1 = dateObjectStart.getDate();
+  const year1 = dateObjectStart.getFullYear();
+
+  
+  const month2 = dateObjectEnd.toLocaleString("en-US", { month: "short" });
+  const day2 = dateObjectEnd.getDate();
+  const year2 = dateObjectEnd.getFullYear();
+  
+  const formattedDateStart = `${day1} ${month1} ${year1}`;
+  const formattedDateEnd = `${day2} ${month2} ${year2}`;
 
   let navigate = useNavigate();
   const routeChange = () => {
@@ -103,6 +124,10 @@ const Ecommerce = () => {
           <div className="flex justify-center flex-col">
             <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg m-3 p-4 rounded-2xl md:w-780">
               <div className="flex flex-col flex-wrap lg:flex-nowrap justify-center ">
+              <div className="items-center justify-center gap-3 mb-16  mt-4 flex text-xl font-extrabold tracking-tight dark:text-white text-slate-900">
+            <img src={logo} style={{height:"75px", width:"95px"}} alt="logo"/>
+
+          </div>
                 <div className="dark:text-gray-200  font-semibold text-xl mb-3 ">
                   <h1>Compteurs de pannes Caméras</h1>
                 </div>
@@ -281,6 +306,10 @@ const Ecommerce = () => {
 
             <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg m-3 p-4 rounded-2xl md:w-780">
               <div className="flex flex-col flex-wrap lg:flex-nowrap justify-center ">
+              <div className="items-center justify-center gap-3 mb-16  mt-4 flex text-xl font-extrabold tracking-tight dark:text-white text-slate-900">
+            <img src={logo} style={{height:"75px", width:"95px"}} alt="logo"/>
+
+          </div>
                 <div className="dark:text-gray-200  font-semibold text-xl mb-3 ">
                   <h1>Compteurs de pannes équipements </h1>
                 </div>

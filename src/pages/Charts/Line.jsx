@@ -19,7 +19,7 @@ import { ChartsHeader, LineChart } from "../../components";
 import loader from "../../images/loader1.jpg";
 import { useContext } from "react";
 import html2pdf from "html2pdf.js";
-import { SiShopware } from "react-icons/si";
+import logo from "../../images/Logo_Toulouse.png"
 
 const Line = () => {
   const { line, startDate, endDate } = useContext(StateContext);
@@ -42,7 +42,7 @@ const Line = () => {
     const element = document.getElementById("line-chart"); // Replace 'pdf-content' with the ID of the element containing the content you want to convert to PDF
     const opt = {
       margin: [35, 0, 55, 0],
-      filename: `From "${formattedDateStart}" To "${formattedDateEnd}" Distribution-des-pannes-sur-la-periode.pdf`,
+      filename: `${formattedDateStart} - ${formattedDateEnd} Distribution-des-pannes-sur-la-periode.pdf`,
       image: { type: "jpeg", quality: 0.98 },
       html2canvas: { scale: 1 },
       jsPDF: { unit: "mm", format: "a3", orientation: "landscape" }, // Set orientation to 'landscape'
@@ -64,8 +64,8 @@ const Line = () => {
   const day2 = dateObjectEnd.getDate();
   const year2 = dateObjectEnd.getFullYear();
   
-  const formattedDateStart = `${month1} ${day1} ${year1}`;
-  const formattedDateEnd = `${month2} ${day2} ${year2}`;
+  const formattedDateStart = `${day1} ${month1} ${year1}`;
+  const formattedDateEnd = `${day2} ${month2} ${year2}`;
 
 
   return (
@@ -80,7 +80,7 @@ const Line = () => {
       <div id="line-chart">
         <div className="m-4 md:m-10 mt-24 p-10 bg-white dark:bg-secondary-dark-bg rounded-3xl">
           <div className="items-center justify-center gap-3 mb-16  mt-4 flex text-xl font-extrabold tracking-tight dark:text-white text-slate-900">
-            <SiShopware size={30} /> <span className="text-2xl">GMAO</span>
+          <img src={logo} style={{height:"75px", width:"95px"}} alt="logo"/>
           </div>
           <ChartsHeader
             category="Distribution du nombre de pannes caméras sur la période"
@@ -92,7 +92,7 @@ const Line = () => {
         </div>
         <div className="m-4 md:m-10 mt-24 p-10 bg-white dark:bg-secondary-dark-bg rounded-3xl">
           <div className="items-center justify-center gap-3 mb-16  mt-4 flex text-xl font-extrabold tracking-tight dark:text-white text-slate-900">
-            <SiShopware size={30} /> <span className="text-2xl">GMAO</span>
+          <img src={logo} style={{height:"75px", width:"95px"}} alt="logo"/>
           </div>
           <ChartsHeader
             category="Distribution du nombre de pannes equipment sur la période"
