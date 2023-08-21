@@ -63,7 +63,7 @@ const LineChart = () => {
               yName='y'
               type='Line'
               width='2'
-              name="tickets luverts"
+              name="tickets Ouverts"
               marker={marker}
             ></SeriesDirective>
                       <SeriesDirective

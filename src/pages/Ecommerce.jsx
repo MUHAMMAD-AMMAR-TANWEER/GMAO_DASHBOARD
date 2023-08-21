@@ -78,7 +78,7 @@ const Ecommerce = () => {
     const element = document.getElementById("table-data"); // Replace 'pdf-content' with the ID of the element containing the content you want to convert to PDF
     const opt = {
       margin: [0,50,50,0],
-      filename: `${formattedDateStart} - ${formattedDateEnd} Competeurs.pdf`,
+      filename: `${formattedDateStart} - ${formattedDateEnd} Compteurs.pdf`,
       image: { type: "jpeg", quality: 0.98 },
       html2canvas: { scale: 2 },
       jsPDF: { unit: "mm", format: "a3", orientation: "landscape" }, // Set orientation to 'landscape'
