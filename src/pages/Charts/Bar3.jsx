@@ -24,11 +24,12 @@ const Bar3 = () => {
   const { currentMode } = useStateContext();
   const [barData, setBarData] = useState();
  
-  const marker = {
-    visible: true,
-    position: 'Top',
-    font: { fontWeight: '600', color: '#ffffff' },
-  };
+  const marker={
+    dataLabel: {
+        visible: true,
+        font: { fontWeight: '800', fontSize: "15px" },
+    },
+};
 
   useEffect(() => {
     if (bar3) {

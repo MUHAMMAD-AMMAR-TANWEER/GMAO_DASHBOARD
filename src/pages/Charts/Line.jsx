@@ -19,10 +19,10 @@ import { ChartsHeader, LineChart } from "../../components";
 import loader from "../../images/loader1.jpg";
 import { useContext } from "react";
 import html2pdf from "html2pdf.js";
-import logo from "../../images/Logo_Toulouse.png"
+import logo from "../../images/Logo_Toulouse.png";
 
 const Line = () => {
-  const { line, startDate, endDate } = useContext(StateContext);
+  const { line, startDate, endDate, maxValue1 } = useContext(StateContext);
   const { currentMode } = useStateContext();
   const [lineData, setLineData] = useState();
 
@@ -54,33 +54,45 @@ const Line = () => {
   const dateObjectStart = new Date(startDate);
   const dateObjectEnd = new Date(endDate);
 
-
   const month1 = dateObjectStart.toLocaleString("en-US", { month: "short" });
   const day1 = dateObjectStart.getDate();
   const year1 = dateObjectStart.getFullYear();
 
-  
   const month2 = dateObjectEnd.toLocaleString("en-US", { month: "short" });
   const day2 = dateObjectEnd.getDate();
   const year2 = dateObjectEnd.getFullYear();
-  
+
   const formattedDateStart = `${day1} ${month1} ${year1}`;
   const formattedDateEnd = `${day2} ${month2} ${year2}`;
 
+  const LinePrimaryYAxisNew = {
+    labelFormat: '{value}',
+    rangePadding: 'None',
+    minimum: 0,
+    maximum: maxValue1,
+    interval: 1,
+    lineStyle: { width: 0 },
+    majorTickLines: { width: 0 },
+    minorTickLines: { width: 0 },
+  };
 
   return (
     <div>
-      
       <button
         className=" absolute top-0 right-0 transform -translate-x-1/2 mt-2 bg-blue-500 text-white px-4 py-2 rounded"
         onClick={generatePDF}
       >
-      Générer PDF
+        Générer PDF
       </button>
+      <p>{maxValue1}</p>
       <div id="line-chart">
         <div className="m-4 md:m-10 mt-24 p-10 bg-white dark:bg-secondary-dark-bg rounded-3xl">
           <div className="items-center justify-center gap-3 mb-16  mt-4 flex text-xl font-extrabold tracking-tight dark:text-white text-slate-900">
-          <img src={logo} style={{height:"75px", width:"95px"}} alt="logo"/>
+            <img
+              src={logo}
+              style={{ height: "75px", width: "95px" }}
+              alt="logo"
+            />
           </div>
           <ChartsHeader
             category="Distribution du nombre de pannes caméras sur la période"
@@ -92,7 +104,11 @@ const Line = () => {
         </div>
         <div className="m-4 md:m-10 mt-24 p-10 bg-white dark:bg-secondary-dark-bg rounded-3xl">
           <div className="items-center justify-center gap-3 mb-16  mt-4 flex text-xl font-extrabold tracking-tight dark:text-white text-slate-900">
-          <img src={logo} style={{height:"75px", width:"95px"}} alt="logo"/>
+            <img
+              src={logo}
+              style={{ height: "75px", width: "95px" }}
+              alt="logo"
+            />
           </div>
           <ChartsHeader
             category="Distribution du nombre de pannes equipment sur la période"
@@ -104,7 +120,7 @@ const Line = () => {
                 <ChartComponent
                   height="420px"
                   primaryXAxis={LinePrimaryXAxis}
-                  primaryYAxis={LinePrimaryYAxis}
+                  primaryYAxis={LinePrimaryYAxisNew}
                   palettes={palette}
                   chartArea={{ border: { width: 0 } }}
                   tooltip={{ enable: true }}

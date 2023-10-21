@@ -17,7 +17,7 @@ import { useStateContext, StateContext } from '../../contexts/ContextProvider';
 import loader from '../../images/loader1.jpg';
 
 const LineChart = () => {
-  const { line2 } = useContext(StateContext);
+  const { line2, maxValue2 } = useContext(StateContext);
   const { currentMode } = useStateContext();
   const [lineData, setLineData] = useState();
 
@@ -31,6 +31,17 @@ const LineChart = () => {
     }
   }, [line2]);
 
+  const LinePrimaryYAxisNew = {
+    labelFormat: '{value}',
+    rangePadding: 'None',
+    minimum: 0,
+    maximum: maxValue2,
+    interval: 1,
+    lineStyle: { width: 0 },
+    majorTickLines: { width: 0 },
+    minorTickLines: { width: 0 },
+  };
+
   return (
     <div>
       {lineData ? (
@@ -38,7 +49,7 @@ const LineChart = () => {
           id='line-chart'
           height='420px'
           primaryXAxis={LinePrimaryXAxis}
-          primaryYAxis={LinePrimaryYAxis}
+          primaryYAxis={LinePrimaryYAxisNew}
           palettes={palette}
           chartArea={{ border: { width: 0 } }}
           tooltip={{ enable: true }}

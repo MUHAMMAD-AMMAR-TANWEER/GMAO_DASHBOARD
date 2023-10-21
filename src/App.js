@@ -9,6 +9,7 @@ import './App.css';
 
 import { useStateContext } from './contexts/ContextProvider';
 import AllGraphs from './AllGraphs';
+import DataComponent from './components/DataComponent';
 
 const App = () => {
   const { setCurrentColor, setCurrentMode, currentMode, activeMenu, currentColor, themeSettings, setThemeSettings } = useStateContext();
@@ -90,6 +91,7 @@ const App = () => {
                 <Route path='/pyramid' element={<Pyramid />} />
                 <Route path='/Distribution-des-pannes-par-type' element={<Stacked />} />
                 <Route path='/Compteurs' element={(<Ecommerce />)} />
+                <Route path='/HorizontalBar-graph-table' element={(<DataComponent />)} />
                 <Route path='/allgraphsforpdf' element={(<AllGraphs/>)}/>
 
               </Routes>

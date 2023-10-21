@@ -18,8 +18,8 @@ import { useContext } from "react";
 import loader from "../images/loader1.jpg";
 import PDFDocument from "../components/pdfButton";
 import html2pdf from "html2pdf.js";
-import logo from "../images/Logo_Toulouse.png"
-
+import logo from "../images/Logo_Toulouse.png";
+import DataComponent from "../components/DataComponent";
 
 const DropDown = ({ currentMode }) => (
   <div className="w-28 border-1 border-color px-2 py-1 rounded-md">
@@ -56,28 +56,28 @@ const Ecommerce = () => {
     maintenanceZefilData2,
   } = useContext(StateContext);
 
+  const isNumbermaintenanceZefilData =
+    maintenanceZefilData >= 0 && maintenanceZefilData !== null;
 
-
-   const isNumbermaintenanceZefilData = maintenanceZefilData >= 0 && maintenanceZefilData !== null
-
-   const isNumbercompleteData = completeData >= 0 && completeData !== null
-   const isNumberremainingData = remainingData >= 0 && remainingData !== null
-   const isNumbertotalData = totalData >= 0 && totalData !== null
-   const isNumbercompleteData2 = completeData2 >= 0 && completeData2 !== null
-   const isNumberremainingData2 = remainingData2 >= 0 && remainingData2 !== null
-   const isNumbertotalData2 = totalData2 >= 0 && totalData2 !== null
-   const isNumbersnefData = snefData >= 0 && snefData !== null
-   const isNumbersipproData = sipproData >= 0 && sipproData !== null
-   const isNumbermairieData = mairieData >= 0 && mairieData !== null
-   const isNumbersnefData2 = snefData2 >= 0 && snefData2 !== null
-   const isNumbersipproData2 = sipproData2 >= 0 && sipproData2 !== null
-   const isNumbermairieData2 = mairieData2 >= 0 && mairieData2 !== null
-   const isNumbermaintenanceZefilData2 = maintenanceZefilData2 >= 0 && maintenanceZefilData2 !== null
+  const isNumbercompleteData = completeData >= 0 && completeData !== null;
+  const isNumberremainingData = remainingData >= 0 && remainingData !== null;
+  const isNumbertotalData = totalData >= 0 && totalData !== null;
+  const isNumbercompleteData2 = completeData2 >= 0 && completeData2 !== null;
+  const isNumberremainingData2 = remainingData2 >= 0 && remainingData2 !== null;
+  const isNumbertotalData2 = totalData2 >= 0 && totalData2 !== null;
+  const isNumbersnefData = snefData >= 0 && snefData !== null;
+  const isNumbersipproData = sipproData >= 0 && sipproData !== null;
+  const isNumbermairieData = mairieData >= 0 && mairieData !== null;
+  const isNumbersnefData2 = snefData2 >= 0 && snefData2 !== null;
+  const isNumbersipproData2 = sipproData2 >= 0 && sipproData2 !== null;
+  const isNumbermairieData2 = mairieData2 >= 0 && mairieData2 !== null;
+  const isNumbermaintenanceZefilData2 =
+    maintenanceZefilData2 >= 0 && maintenanceZefilData2 !== null;
 
   const generatePDF = () => {
     const element = document.getElementById("table-data"); // Replace 'pdf-content' with the ID of the element containing the content you want to convert to PDF
     const opt = {
-      margin: [0,50,50,0],
+      margin: [0, 50, 50, 0],
       filename: `${formattedDateStart} - ${formattedDateEnd} Compteurs.pdf`,
       image: { type: "jpeg", quality: 0.98 },
       html2canvas: { scale: 2 },
@@ -87,21 +87,17 @@ const Ecommerce = () => {
     html2pdf().from(element).set(opt).save();
   };
 
-
-
   const dateObjectStart = new Date(startDate);
   const dateObjectEnd = new Date(endDate);
-
 
   const month1 = dateObjectStart.toLocaleString("en-US", { month: "short" });
   const day1 = dateObjectStart.getDate();
   const year1 = dateObjectStart.getFullYear();
 
-  
   const month2 = dateObjectEnd.toLocaleString("en-US", { month: "short" });
   const day2 = dateObjectEnd.getDate();
   const year2 = dateObjectEnd.getFullYear();
-  
+
   const formattedDateStart = `${day1} ${month1} ${year1}`;
   const formattedDateEnd = `${day2} ${month2} ${year2}`;
 
@@ -124,14 +120,17 @@ const Ecommerce = () => {
           <div className="flex justify-center flex-col">
             <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg m-3 p-4 rounded-2xl md:w-780">
               <div className="flex flex-col flex-wrap lg:flex-nowrap justify-center ">
-              <div className="items-center justify-center gap-3 mb-16  mt-4 flex text-xl font-extrabold tracking-tight dark:text-white text-slate-900">
-            <img src={logo} style={{height:"75px", width:"95px"}} alt="logo"/>
-
-          </div>
+                <div className="items-center justify-center gap-3 mb-16  mt-4 flex text-xl font-extrabold tracking-tight dark:text-white text-slate-900">
+                  <img
+                    src={logo}
+                    style={{ height: "75px", width: "95px" }}
+                    alt="logo"
+                  />
+                </div>
                 <div className="dark:text-gray-200  font-semibold text-xl mb-3 ">
                   <h1>Compteurs de pannes Caméras</h1>
                 </div>
-                <div className="flex m-3 flex-wrap justify-center gap-1 items-center">
+                <div className="flex m-3 justify-center gap-1 items-center">
                   <div className="bg-white h-44 dark:text-gray-200 dark:bg-secondary-dark-bg md:w-56  p-4 pt-9 rounded-2xl ">
                     <button
                       type="button"
@@ -203,11 +202,11 @@ const Ecommerce = () => {
                   </div>
                 </div>
               </div>
-              <div className="flex flex-col flex-wrap lg:flex-nowrap justify-center ">
+              <div className="flex flex-col lg:flex-nowrap justify-center ">
                 <div className="dark:text-gray-200 font-semibold text-xl mb-3 ">
                   <h1>Distribution pannes Caméras</h1>
                 </div>
-                <div className="flex m-3 flex-wrap justify-center gap-1 items-center">
+                <div className="flex m-3 justify-center gap-1 items-center">
                   <div className="bg-white h-44 dark:text-gray-200 dark:bg-secondary-dark-bg md:w-56  p-4 pt-9 rounded-2xl ">
                     <button
                       type="button"
@@ -305,15 +304,18 @@ const Ecommerce = () => {
             </div>
 
             <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg m-3 p-4 rounded-2xl md:w-780">
-              <div className="flex flex-col flex-wrap lg:flex-nowrap justify-center ">
-              <div className="items-center justify-center gap-3 mb-16  mt-4 flex text-xl font-extrabold tracking-tight dark:text-white text-slate-900">
-            <img src={logo} style={{height:"75px", width:"95px"}} alt="logo"/>
-
-          </div>
+              <div className="flex flex-col lg:flex-nowrap justify-center ">
+                <div className="items-center justify-center gap-3 mb-16  mt-4 flex text-xl font-extrabold tracking-tight dark:text-white text-slate-900">
+                  <img
+                    src={logo}
+                    style={{ height: "75px", width: "95px" }}
+                    alt="logo"
+                  />
+                </div>
                 <div className="dark:text-gray-200  font-semibold text-xl mb-3 ">
                   <h1>Compteurs de pannes équipements </h1>
                 </div>
-                <div className="flex m-3 flex-wrap justify-center gap-1 items-center">
+                <div className="flex m-3 justify-center gap-1 items-center">
                   <div className="bg-white h-44 dark:text-gray-200 dark:bg-secondary-dark-bg md:w-56  p-4 pt-9 rounded-2xl ">
                     <button
                       type="button"
@@ -385,11 +387,11 @@ const Ecommerce = () => {
                   </div>
                 </div>
               </div>
-              <div className="flex flex-col flex-wrap lg:flex-nowrap justify-center ">
+              <div className="flex flex-col lg:flex-nowrap justify-center ">
                 <div className="dark:text-gray-200 font-semibold text-xl mb-3 ">
                   <h1>Distribution pannes équipements </h1>
                 </div>
-                <div className="flex m-3 flex-wrap justify-center gap-1 items-center">
+                <div className="flex m-3 justify-center gap-1 items-center">
                   <div className="bg-white h-44 dark:text-gray-200 dark:bg-secondary-dark-bg md:w-56  p-4 pt-9 rounded-2xl ">
                     <button
                       type="button"
@@ -485,7 +487,9 @@ const Ecommerce = () => {
                 </div>
               </div>
             </div>
+            <DataComponent />
           </div>
+
         ) : (
           <div className="dark:text-gray-200  font-semibold text-xl mb-3 text-center ">
             <h1 className="text-3xl">
