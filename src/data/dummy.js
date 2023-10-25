@@ -512,7 +512,7 @@ export const links = [
     title: 'RAPPORTS',
     links: [
       {
-        name: 'Distribution-des-pannes-sur-la-periode',
+        name: 'pannes-sur-la-periode',
         icon: <AiOutlineStock />,
       },
       {

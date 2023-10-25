@@ -31,7 +31,7 @@ const Bar2 = () => {
         <div className="items-center justify-center gap-3 mb-16  mt-4 flex text-xl font-extrabold tracking-tight dark:text-white text-slate-900">
         <img src={logo} style={{height:"75px", width:"95px"}} alt="logo"/>
         </div>
-        <ChartsHeader category="Distribution des pannes caméras par type" />
+        <ChartsHeader category="pannes caméras par type" />
         <div className=" w-full">
           {barData ? (
             <ChartComponent

@@ -53,7 +53,7 @@ const DataComponent = () => {
             />
           </div>
           <div className="dark:text-gray-200  font-semibold text-xl mb-3 ">
-            <h1>Distribution des pannes caméras par type</h1>
+            <h1>pannes caméras par type</h1>
           </div>
           <div className="flex flex-col items-center justify-center">
             {xyValues ? (
@@ -85,7 +85,7 @@ const DataComponent = () => {
           </div>
 
           <div className="dark:text-gray-200  font-semibold text-xl mb-3 mt-10 ">
-            <h1>Distribution des pannes caméras par type</h1>
+            <h1>pannes équipements par type</h1>
           </div>
           <div className="flex flex-col items-center justify-center">
             {xyValues2 ? (

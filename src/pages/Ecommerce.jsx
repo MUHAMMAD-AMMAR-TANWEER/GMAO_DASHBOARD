@@ -228,7 +228,7 @@ const Ecommerce = () => {
               </div>
               <div className="flex flex-col lg:flex-nowrap justify-center ">
                 <div className="dark:text-gray-200 font-semibold text-xl mb-3 ">
-                  <h1>Distribution pannes Caméras</h1>
+                  <h1> pannes Caméras</h1>
                 </div>
                 <div className="flex m-3 justify-center gap-1 items-center">
                   <div className="bg-white h-44 dark:text-gray-200 dark:bg-secondary-dark-bg md:w-56  p-4 pt-9 rounded-2xl ">
@@ -413,7 +413,7 @@ const Ecommerce = () => {
               </div>
               <div className="flex flex-col lg:flex-nowrap justify-center ">
                 <div className="dark:text-gray-200 font-semibold text-xl mb-3 ">
-                  <h1>Distribution pannes équipements </h1>
+                  <h1> pannes équipements </h1>
                 </div>
                 <div className="flex m-3 justify-center gap-1 items-center">
                   <div className="bg-white h-44 dark:text-gray-200 dark:bg-secondary-dark-bg md:w-56  p-4 pt-9 rounded-2xl ">

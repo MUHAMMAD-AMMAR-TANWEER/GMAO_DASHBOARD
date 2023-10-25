@@ -117,7 +117,7 @@ const Line = () => {
             />
           </div>
           <ChartsHeader
-            category="Distribution du nombre de pannes caméras sur la période"
+            category=" nombre de pannes caméras sur la période"
             title=""
           />
           <div className="w-full">
@@ -133,7 +133,7 @@ const Line = () => {
             />
           </div>
           <ChartsHeader
-            category="Distribution du nombre de pannes equipment sur la période"
+            category="nombre de pannes equipment sur la période"
             title=""
           />
           <div className="w-full">
