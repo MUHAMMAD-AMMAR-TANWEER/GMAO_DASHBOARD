@@ -44,7 +44,7 @@ const DataComponent = () => {
         Générer PDF
       </button>
       <div id="bar-charts" className="flex items-center text-left justify-center flex-col">
-        <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg m-3 p-4 rounded-2xl md:w-780">
+        <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg m-3 p-4 rounded-2xl md:w-1000">
           <div className="items-center justify-center gap-3 mb-16  mt-4 flex text-xl font-extrabold tracking-tight dark:text-white text-slate-900">
             <img
               src={logo}
@@ -61,7 +61,7 @@ const DataComponent = () => {
                 {xyValues?.map((item, index) => (
                   <div
                     key={index}
-                    className="flex flex-col items-center justify-center bg-white h-44 dark:text-gray-200 dark:bg-secondary-dark-bg md:w-32  p-3 pt-9 rounded-2xl "
+                    className="flex flex-col items-center justify-end bg-white h-44 dark:text-gray-200 dark:bg-secondary-dark-bg md:w-44  p-3 pt-9 rounded-2xl "
                   >
                     <div className="text-sm opacity-0.9 rounded-full  p-4 hover:drop-shadow-xl">
                       {item.x}
@@ -93,7 +93,7 @@ const DataComponent = () => {
                 {xyValues2?.map((item, index) => (
                   <div
                     key={index}
-                    className="flex flex-col items-center justify-center bg-white h-44 dark:text-gray-200 dark:bg-secondary-dark-bg md:w-56  p-4 pt-9 rounded-2xl "
+                    className="flex flex-col items-center justify-end bg-white h-44 dark:text-gray-200 dark:bg-secondary-dark-bg md:w-72  p-4 pt-9 rounded-2xl "
                   >
                     <div className="text-md opacity-0.9 rounded-full  p-4 hover:drop-shadow-xl">
                       {item.x}

@@ -11,6 +11,7 @@ import {
   DataLabel,
   StripLine,  
 } from "@syncfusion/ej2-react-charts";
+import html2canvas from "html2canvas";
 
 import { barPrimaryXAxis, barPrimaryYAxis } from "../../data/dummy";
 import { ChartsHeader } from "../../components";
@@ -69,15 +70,37 @@ const Bar = () => {
   
   // const filteredData = barData?.filter((point) => point.y !== 0);
 
+  const captureScreenshot = () => {
+    html2canvas(document.body).then((canvas) => {
+      // Convert the canvas to a data URL
+      const screenshotDataUrl = canvas.toDataURL("image/png");
+
+      // Create a hidden anchor element to trigger the download
+      const link = document.createElement("a");
+      link.href = screenshotDataUrl;
+      link.download = "screenshot.png"; // Specify the filename
+
+      // Trigger a click event on the anchor to start the download
+      link.click();
+    });
+  };
 
   return (
     <div>
-      <button
-        className=" absolute top-0 right-0 transform -translate-x-1/2 mt-2 bg-blue-500 text-white px-4 py-2 rounded"
-        onClick={generatePDF}
-      >
-        Générer PDF
-      </button>
+    <div className="flex">
+    <button
+      className=" absolute top-0 right-0 transform -translate-x-1/2 mt-2 bg-blue-500 text-white px-4 py-2 rounded"
+      onClick={generatePDF}
+    >
+      Générer PDF
+    </button>
+    <button
+      className=" absolute top-0 right-32 transform -translate-x-1/2 mt-2 bg-blue-500 text-white px-4 py-2 rounded"
+      onClick={captureScreenshot}
+    >
+    Download Image
+    </button>
+    </div>
       <div id="vertical-bar-charts">
         <div className="m-4 md:m-10 mt-24 p-10 bg-white dark:bg-secondary-dark-bg rounded-3xl">
           <div className="items-center justify-center gap-3 mb-16  mt-4 flex text-xl font-extrabold tracking-tight dark:text-white text-slate-900">

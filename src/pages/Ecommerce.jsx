@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { GoPrimitiveDot } from "react-icons/go";
 import { IoIosMore } from "react-icons/io";
+import html2canvas from "html2canvas";
 import { DropDownListComponent } from "@syncfusion/ej2-react-dropdowns";
 import { useNavigate } from "react-router-dom";
 import { Stacked, Pie, Button, LineChart, SparkLine } from "../components";
@@ -107,18 +108,41 @@ const Ecommerce = () => {
     navigate(path);
   };
 
+  const captureScreenshot = () => {
+    html2canvas(document.body).then((canvas) => {
+      // Convert the canvas to a data URL
+      const screenshotDataUrl = canvas.toDataURL("image/png");
+
+      // Create a hidden anchor element to trigger the download
+      const link = document.createElement("a");
+      link.href = screenshotDataUrl;
+      link.download = "screenshot.png"; // Specify the filename
+
+      // Trigger a click event on the anchor to start the download
+      link.click();
+    });
+  };
+
   return (
     <div className="flex items-center justify-center">
-      <button
-        className=" absolute top-0 right-0 transform -translate-x-1/2 mt-2 bg-blue-500 text-white px-4 py-2 rounded"
-        onClick={generatePDF}
-      >
-        Générer PDF
-      </button>
+      <div className="flex">
+        <button
+          className=" absolute top-0 right-0 transform -translate-x-1/2 mt-2 bg-blue-500 text-white px-4 py-2 rounded"
+          onClick={generatePDF}
+        >
+          Générer PDF
+        </button>
+        <button
+          className=" absolute top-0 right-32 transform -translate-x-1/2 mt-2 bg-blue-500 text-white px-4 py-2 rounded"
+          onClick={captureScreenshot}
+        >
+          Download Image
+        </button>
+      </div>
       <div className="mt-24" id="table-data">
         {startDate ? (
           <div className="flex justify-center flex-col">
-            <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg m-3 p-4 rounded-2xl md:w-780">
+            <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg m-3 p-4 rounded-2xl md:w-1000">
               <div className="flex flex-col flex-wrap lg:flex-nowrap justify-center ">
                 <div className="items-center justify-center gap-3 mb-16  mt-4 flex text-xl font-extrabold tracking-tight dark:text-white text-slate-900">
                   <img
@@ -303,7 +327,7 @@ const Ecommerce = () => {
               </div>
             </div>
 
-            <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg m-3 p-4 rounded-2xl md:w-780">
+            <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg m-3 p-4 rounded-2xl md:w-1000">
               <div className="flex flex-col lg:flex-nowrap justify-center ">
                 <div className="items-center justify-center gap-3 mb-16  mt-4 flex text-xl font-extrabold tracking-tight dark:text-white text-slate-900">
                   <img
@@ -489,7 +513,6 @@ const Ecommerce = () => {
             </div>
             <DataComponent />
           </div>
-
         ) : (
           <div className="dark:text-gray-200  font-semibold text-xl mb-3 text-center ">
             <h1 className="text-3xl">
