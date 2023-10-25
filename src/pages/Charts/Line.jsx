@@ -84,7 +84,7 @@ const Line = () => {
       // Create a hidden anchor element to trigger the download
       const link = document.createElement("a");
       link.href = screenshotDataUrl;
-      link.download = "screenshot.png"; // Specify the filename
+      link.download = `${formattedDateStart} - ${formattedDateEnd} Distribution-des-pannes-sur-la-periode.png`; // Specify the filename
 
       // Trigger a click event on the anchor to start the download
       link.click();
