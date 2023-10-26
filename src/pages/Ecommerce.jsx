@@ -145,7 +145,7 @@ const Ecommerce = () => {
               captureScreenshot("pannes caméras par type");
           }}
         >
-          Download Image
+        Générer Image
         </button>
       </div>
       <div className="mt-24" id="table-data">

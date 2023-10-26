@@ -109,7 +109,7 @@ const Line = () => {
               captureScreenshot("nombre de pannes equipment sur la période");
           }}
         >
-          Download Image
+        Générer Image
         </button>
       </div>
       <div id="line-chart">

@@ -106,7 +106,7 @@ const Bar = () => {
               captureScreenshot("Temps moyen de prise en compte ( équipements )");
           }}
         >
-          Download Image
+        Générer Image
         </button>
         
       </div>
