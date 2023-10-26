@@ -218,6 +218,10 @@ export const ContextProvider = ({ children }) => {
   useEffect(() => {
     (async () => {
       if (startDate && endDate) {
+        const fetchLineData = await lineData1();
+        setLine(fetchLineData);
+        const fetchLineData2 = await lineData2();
+        setLine2(fetchLineData2);
         const tableData = await getTableData();
         setTable(tableData);
         const tableData2 = await getTableData2();
@@ -235,10 +239,7 @@ export const ContextProvider = ({ children }) => {
         const fetchBarData4 = await BarData4();
         setBar4(fetchBarData4);
 
-        const fetchLineData = await lineData1();
-        setLine(fetchLineData);
-        const fetchLineData2 = await lineData2();
-        setLine2(fetchLineData2);
+        
       }
     })();
   }, [startDate, endDate]);

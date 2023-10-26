@@ -148,7 +148,7 @@ const Sidebar = () => {
           ))}
         </div>
       </div>
-      <Link className="bg-gray-400 hover:bg-gray-300 text-slate-900 dark:text-white w-32 absolute bottom-4 left-4  font-bold py-2 px-4 rounded-xl inline-flex items-center justify-center" to="http://localhost/" target="_blank" rel="noopener noreferrer">
+      <Link className="bg-gray-400 hover:bg-gray-300 text-slate-900 dark:text-white w-32 absolute bottom-4 left-4  font-bold py-2 px-4 rounded-xl inline-flex items-center justify-center" to="http://localhost:4200" target="_blank" rel="noopener noreferrer">
         <button>GMAO</button>
       </Link>
     </div>

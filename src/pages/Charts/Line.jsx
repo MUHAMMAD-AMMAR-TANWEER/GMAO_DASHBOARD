@@ -66,49 +66,57 @@ const Line = () => {
   const formattedDateEnd = `${day2} ${month2} ${year2}`;
 
   const LinePrimaryYAxisNew = {
-    labelFormat: '{value}',
-    rangePadding: 'None',
+    labelFormat: "{value}",
+    rangePadding: "None",
     minimum: 0,
-    maximum: maxValue1 ,
+    maximum: maxValue1,
     interval: 1,
     lineStyle: { width: 0 },
     majorTickLines: { width: 0 },
     minorTickLines: { width: 0 },
   };
 
-  const captureScreenshot = () => {
-    html2canvas(document.body).then((canvas) => {
-      // Convert the canvas to a data URL
-      const screenshotDataUrl = canvas.toDataURL("image/png");
+  const captureScreenshot = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      html2canvas(section).then((canvas) => {
+        // Convert the canvas to a data URL
+        const screenshotDataUrl = canvas.toDataURL("image/png");
 
-      // Create a hidden anchor element to trigger the download
-      const link = document.createElement("a");
-      link.href = screenshotDataUrl;
-      link.download = `${formattedDateStart} - ${formattedDateEnd} Distribution-des-pannes-sur-la-periode.png`; // Specify the filename
+        // Create a hidden anchor element to trigger the download
+        const link = document.createElement("a");
+        link.href = screenshotDataUrl;
+        link.download = `${formattedDateStart} - ${formattedDateEnd} ${sectionId}.png`; // Specify the filename
 
-      // Trigger a click event on the anchor to start the download
-      link.click();
-    });
+        // Trigger a click event on the anchor to start the download
+        link.click();
+      });
+    }
   };
-
   return (
     <div>
-    <div className="flex">
-    <button
-      className=" absolute top-0 right-0 transform -translate-x-1/2 mt-2 bg-blue-500 text-white px-4 py-2 rounded"
-      onClick={generatePDF}
-    >
-      Générer PDF
-    </button>
-    <button
-      className=" absolute top-0 right-32 transform -translate-x-1/2 mt-2 bg-blue-500 text-white px-4 py-2 rounded"
-      onClick={captureScreenshot}
-    >
-    Download Image
-    </button>
-    </div>
+      <div className="flex">
+        <button
+          className=" absolute top-0 right-0 transform -translate-x-1/2 mt-2 bg-blue-500 text-white px-4 py-2 rounded"
+          onClick={generatePDF}
+        >
+          Générer PDF
+        </button>
+        <button
+          className=" absolute top-0 right-32 transform -translate-x-1/2 mt-2 bg-blue-500 text-white px-4 py-2 rounded"
+          onClick={() => {
+            captureScreenshot("nombre de pannes caméras sur la période"),
+              captureScreenshot("nombre de pannes equipment sur la période");
+          }}
+        >
+          Download Image
+        </button>
+      </div>
       <div id="line-chart">
-        <div className="m-4 md:m-10 mt-24 p-10 bg-white dark:bg-secondary-dark-bg rounded-3xl">
+        <div
+          id="nombre de pannes caméras sur la période"
+          className="m-4 md:m-10 mt-24 p-10 bg-white dark:bg-secondary-dark-bg rounded-3xl"
+        >
           <div className="items-center justify-center gap-3 mb-16  mt-4 flex text-xl font-extrabold tracking-tight dark:text-white text-slate-900">
             <img
               src={logo}
@@ -117,14 +125,17 @@ const Line = () => {
             />
           </div>
           <ChartsHeader
-            category=" nombre de pannes caméras sur la période"
+            category=" Nombre de pannes caméras sur la période"
             title=""
           />
           <div className="w-full">
             <LineChart />
           </div>
         </div>
-        <div className="m-4 md:m-10 mt-24 p-10 bg-white dark:bg-secondary-dark-bg rounded-3xl">
+        <div
+          id="nombre de pannes equipment sur la période"
+          className="m-4 md:m-10 mt-24 p-10 bg-white dark:bg-secondary-dark-bg rounded-3xl"
+        >
           <div className="items-center justify-center gap-3 mb-16  mt-4 flex text-xl font-extrabold tracking-tight dark:text-white text-slate-900">
             <img
               src={logo}
@@ -133,7 +144,7 @@ const Line = () => {
             />
           </div>
           <ChartsHeader
-            category="nombre de pannes equipment sur la période"
+            category="Nombre de pannes equipment sur la période"
             title=""
           />
           <div className="w-full">
