@@ -111,7 +111,7 @@ const Bar = () => {
         
       </div>
       <div id="vertical-bar-charts">
-        <div id="Temps moyen de resolution ( Caméras )" className="m-4 md:m-10 mt-24 p-10 bg-white dark:bg-secondary-dark-bg rounded-3xl">
+        <div id="Temps moyen de résolution ( Caméras )" className="m-4 md:m-10 mt-24 p-10 bg-white dark:bg-secondary-dark-bg rounded-3xl">
           <div className="items-center justify-center gap-3 mb-16  mt-4 flex text-xl font-extrabold tracking-tight dark:text-white text-slate-900">
             <img
               src={logo}
@@ -120,7 +120,7 @@ const Bar = () => {
             />
           </div>
           <ChartsHeader
-            category=" Temps moyen de resolution ( Caméras  )"
+            category=" Temps moyen de résolution ( Caméras  )"
             title={`Moyenne : ${avg1}(h)`}
           />
           <div className=" w-full">
@@ -167,7 +167,7 @@ const Bar = () => {
         <div id="Temps moyen de prise en compte (Caméras)">
           <Bar2 />
         </div>
-        <div id="Temps moyen de resolution ( équipements )">
+        <div id="Temps moyen de résolution ( équipements )">
           <Bar3 />
         </div>
         <div id="Temps moyen de prise en compte ( équipements )">

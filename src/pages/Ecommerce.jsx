@@ -454,7 +454,7 @@ const Ecommerce = () => {
                       style={{}}
                       className="text-md opacity-0.9 rounded-full  p-4 hover:drop-shadow-xl"
                     >
-                      Nb pannes gérées par SIPPRO {sipproData}
+                      Nb pannes gérées par SIPPRO 
                     </button>
                     {isNumbersipproData ? (
                       <p className="mt-3">
