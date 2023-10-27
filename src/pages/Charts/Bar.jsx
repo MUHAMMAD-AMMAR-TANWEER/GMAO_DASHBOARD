@@ -101,7 +101,7 @@ const Bar = () => {
           className=" absolute top-0 right-32 transform -translate-x-1/2 mt-2 bg-blue-500 text-white px-4 py-2 rounded"
           onClick={() => {
             captureScreenshot("Temps moyen de resolution ( Caméras )"),
-              captureScreenshot("Temps moyen de prise en compte (Caméras)");
+              captureScreenshot("Temps moyen de prise en compte ( Caméras )");
               captureScreenshot("Temps moyen de resolution ( équipements )");
               captureScreenshot("Temps moyen de prise en compte ( équipements )");
           }}
@@ -164,7 +164,7 @@ const Bar = () => {
             )}
           </div>
         </div>
-        <div id="Temps moyen de prise en compte (Caméras)">
+        <div id="Temps moyen de prise en compte ( Caméras )">
           <Bar2 />
         </div>
         <div id="Temps moyen de résolution ( équipements )">
