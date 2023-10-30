@@ -144,7 +144,7 @@ const Line = () => {
             />
           </div>
           <ChartsHeader
-            category="Nombre de pannes equipment sur la période"
+            category="Nombre de pannes équipment sur la période"
             title=""
           />
           <div className="w-full">

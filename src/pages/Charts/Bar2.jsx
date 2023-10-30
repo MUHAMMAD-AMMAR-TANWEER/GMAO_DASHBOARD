@@ -47,7 +47,7 @@ const Bar2 = () => {
           />
         </div>
         <ChartsHeader
-          category="Temps moyen de prise en compte (Caméras)"
+          category="Temps moyen de prise en compte ( Caméras )"
           title={`Moyenne : ${avg2}(h)`}
         />
         <div className=" w-full">
