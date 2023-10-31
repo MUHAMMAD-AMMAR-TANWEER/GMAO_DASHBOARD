@@ -19,7 +19,7 @@ import html2pdf from "html2pdf.js";
 import logo from "../../images/Logo_Toulouse.png"
 // const BarData = async (startDate, endDate) => {
 //   const response = await axios.get(
-//     `https://sippro-gmao.fr:8443/displaysensorFailure?startDate=${startDate}&endDate=${endDate}`
+//     `http://localhost:8443/displaysensorFailure?startDate=${startDate}&endDate=${endDate}`
 //   );
 //   return response.data.values;
 // };
