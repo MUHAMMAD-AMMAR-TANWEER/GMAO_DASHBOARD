@@ -215,29 +215,86 @@ export const ContextProvider = ({ children }) => {
     return response.data.values;
   };
 
+  const generalApi = async () => {
+    const response = await axios.get(
+      `https://sippro-gmao.fr:8443/alltoulDashboard?startDate=${startDate}&endDate=${endDate}`
+    );
+    // LINE 1
+    let max_y = Number.MIN_SAFE_INTEGER;
+    response.data.Line1.forEach((dataset) => {
+      dataset.forEach((point) => {
+        if (point.y > max_y) {
+          max_y = point.y;
+        }
+      });
+    });
+    setMaxValue1(max_y + 2);
+    console.log("Maximum value of y:", max_y);
+    setLine([response.data.Line1[0], response.data.Line1[1]])
+
+    // LINE 2
+    let max_y2 = Number.MIN_SAFE_INTEGER;
+    response.data.Line2.forEach((dataset) => {
+      dataset.forEach((point) => {
+        if (point.y > max_y2) {
+          max_y2 = point.y;
+        }
+      });
+    });
+    setMaxValue2(max_y2 + 2);
+    console.log("Maximum value of y:", max_y2);
+    setLine2([response.data.Line2[0], response.data.Line2[1]])
+
+    // Bar 1
+    setAvg1(parseFloat(response.data.Bar1.avg).toFixed(2));
+    setBar1(response.data.Bar1.values[0])
+
+    // Bar 2
+    setAvg2(parseFloat(response.data.Bar2.avg).toFixed(2));
+    setBar2(response.data.Bar2.values[0])
+
+    // Bar 3
+    setAvg3(parseFloat(response.data.Bar3.avg).toFixed(2));
+    setBar3(response.data.Bar3.values[0])
+
+    // Bar 4
+    setAvg4(parseFloat(response.data.Bar4.avg).toFixed(2));
+    setBar4(response.data.Bar4.values[0])
+
+    // Horizontal 1
+    setXYValues(response.data.H1.values);
+    setHorizontalbar1(response.data.H1.values)
+
+    // Horizontal 2
+    setXYValues2(response.data.H2.values);
+    setHorizontalbar2(response.data.H2.values)
+  }
+  
   useEffect(() => {
     (async () => {
       if (startDate && endDate) {
-        const fetchLineData = await lineData1();
-        setLine(fetchLineData);
-        const fetchLineData2 = await lineData2();
-        setLine2(fetchLineData2);
+        const GeneralData = await generalApi();
+
+        // const fetchLineData = await lineData1();
+        // setLine(fetchLineData);
+        // const fetchLineData2 = await lineData2();
+        // setLine2(fetchLineData2);
         const tableData = await getTableData();
         setTable(tableData);
         const tableData2 = await getTableData2();
         setTable2(tableData2);
-        const fetchHorizontalData1 = await HorizontalData1();
-        setHorizontalbar1(fetchHorizontalData1);
-        const fetchHorizontalData2 = await HorizontalData2();
-        setHorizontalbar2(fetchHorizontalData2);
-        const fetchBarData1 = await BarData1();
-        setBar1(fetchBarData1);
-        const fetchBarData2 = await BarData2();
-        setBar2(fetchBarData2);
-        const fetchBarData3 = await BarData3();
-        setBar3(fetchBarData3);
-        const fetchBarData4 = await BarData4();
-        setBar4(fetchBarData4);
+        // const fetchHorizontalData1 = await HorizontalData1();
+        // setHorizontalbar1(fetchHorizontalData1);
+        // const fetchHorizontalData2 = await HorizontalData2();
+        // setHorizontalbar2(fetchHorizontalData2);
+        // const fetchBarData1 = await BarData1();
+        // setBar1(fetchBarData1);
+        // const fetchBarData2 = await BarData2();
+        // setBar2(fetchBarData2);
+        // const fetchBarData3 = await BarData3();
+        // setBar3(fetchBarData3);
+        // const fetchBarData4 = await BarData4();
+        // setBar4(fetchBarData4);
 
         
       }
