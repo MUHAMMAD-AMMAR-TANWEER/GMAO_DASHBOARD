@@ -270,19 +270,19 @@ export const ContextProvider = ({ children }) => {
     setHorizontalbar2(response.data.H2.values);
 
     // Table 1
-    setCompletedData(response.data.Table1.completed);
-    setRemainingData(response.data.Table1.remaining);
-    setTotalData(response.data.Table1.total);
-    setsnefData(response.data.Table1.snef);
-    setsipproData(response.data.Table1.sippro);
-    setmairieData(response.data.Table1.mairie);
-    setMaintenanceZefilData(response.data.Table1.maintenanceZefil);
+        setCompletedData2(response.data.Table1.completed);
+    setRemainingData2(response.data.Table1.remaining);
+    setTotalData2(response.data.Table1.total);
+    setsnefData2(response.data.Table1.snef);
+    setsipproData2(response.data.Table1.sippro);
+    setmairieData2(response.data.Table1.mairie);
+    setMaintenanceZefilData2(response.data.Table1.maintenanceZefil);
 
-    setTable(response.data.Table1);
+    setTable(response.data.Table1)
 
     //Table 2
 
-    setCompletedData2(response.data.Table2.completed);
+            setCompletedData2(response.data.Table2.completed);
     setRemainingData2(response.data.Table2.remaining);
     setTotalData2(response.data.Table2.total);
     setsnefData2(response.data.Table2.snef);
@@ -290,16 +290,12 @@ export const ContextProvider = ({ children }) => {
     setmairieData2(response.data.Table2.mairie);
     setMaintenanceZefilData2(response.data.Table2.maintenanceZefil);
 
-    setTable2(response.data.Table2);
-  };
-
+    setTable2(response.data.Table2)
+  }
+  
   useEffect(() => {
     (async () => {
       if (startDate && endDate) {
-        const fetchHorizontalData1 = await HorizontalData1();
-        setHorizontalbar1(fetchHorizontalData1);
-        const fetchHorizontalData2 = await HorizontalData2();
-        setHorizontalbar2(fetchHorizontalData2);
         const fetchLineData = await lineData1();
         setLine(fetchLineData);
         const fetchLineData2 = await lineData2();
@@ -308,15 +304,20 @@ export const ContextProvider = ({ children }) => {
         setTable(tableData);
         const tableData2 = await getTableData2();
         setTable2(tableData2);
+        // const fetchHorizontalData1 = await HorizontalData1();
+        // setHorizontalbar1(fetchHorizontalData1);
+        // const fetchHorizontalData2 = await HorizontalData2();
+        // setHorizontalbar2(fetchHorizontalData2);
+        // const fetchBarData1 = await BarData1();
+        // setBar1(fetchBarData1);
+        // const fetchBarData2 = await BarData2();
+        // setBar2(fetchBarData2);
+        // const fetchBarData3 = await BarData3();
+        // setBar3(fetchBarData3);
+        // const fetchBarData4 = await BarData4();
+        // setBar4(fetchBarData4);
+
         
-        const fetchBarData1 = await BarData1();
-        setBar1(fetchBarData1);
-        const fetchBarData2 = await BarData2();
-        setBar2(fetchBarData2);
-        const fetchBarData3 = await BarData3();
-        setBar3(fetchBarData3);
-        const fetchBarData4 = await BarData4();
-        setBar4(fetchBarData4);
       }
     })();
   }, [startDate, endDate]);
