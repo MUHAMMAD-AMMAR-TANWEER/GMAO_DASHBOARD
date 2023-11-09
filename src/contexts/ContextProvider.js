@@ -101,7 +101,7 @@ export const ContextProvider = ({ children }) => {
 
   const getTableData = async () => {
     const response = await axios.get(
-      `http://localhost:8443/displayequipmentTable?startDate=${startDate}&endDate=${endDate}`
+      `https://sippro-gmao.fr:8443/displayequipmentTable?startDate=${startDate}&endDate=${endDate}`
     );
     setCompletedData(response.data.completed);
     setRemainingData(response.data.remaining);
@@ -115,7 +115,7 @@ export const ContextProvider = ({ children }) => {
 
   const getTableData2 = async () => {
     const response = await axios.get(
-      `http://localhost:8443/displaysensorTable?startDate=${startDate}&endDate=${endDate}`
+      `https://sippro-gmao.fr:8443/displaysensorTable?startDate=${startDate}&endDate=${endDate}`
     );
     setCompletedData2(response.data.completed);
     setRemainingData2(response.data.remaining);
@@ -130,7 +130,7 @@ export const ContextProvider = ({ children }) => {
   // Line Chart 1
   const lineData1 = async () => {
     const response = await axios.get(
-      `http://localhost:8443/displayequipmentTicketOpen?startDate=${startDate}&endDate=${endDate}`
+      `https://sippro-gmao.fr:8443/displayequipmentTicketOpen?startDate=${startDate}&endDate=${endDate}`
     );
     let max_y = Number.MIN_SAFE_INTEGER;
     response.data.forEach((dataset) => {
@@ -148,7 +148,7 @@ export const ContextProvider = ({ children }) => {
   // Line Chart 2
   const lineData2 = async () => {
     const response = await axios.get(
-      `http://localhost:8443/displaysensorTicketOpen?startDate=${startDate}&endDate=${endDate}`
+      `https://sippro-gmao.fr:8443/displaysensorTicketOpen?startDate=${startDate}&endDate=${endDate}`
     );
     let max_y = Number.MIN_SAFE_INTEGER;
     response.data.forEach((dataset) => {
@@ -166,7 +166,7 @@ export const ContextProvider = ({ children }) => {
   // Bar Chart 1
   const BarData1 = async () => {
     const response = await axios.get(
-      `http://localhost:8443/displaysensorGraphOne?startDate=${startDate}&endDate=${endDate}`
+      `https://sippro-gmao.fr:8443/displaysensorGraphOne?startDate=${startDate}&endDate=${endDate}`
     );
     setAvg1(parseFloat(response.data.avg).toFixed(2));
     return response.data.values[0];
@@ -174,7 +174,7 @@ export const ContextProvider = ({ children }) => {
   // Bar Chart 2
   const BarData2 = async () => {
     const response = await axios.get(
-      `http://localhost:8443/displaysensorGraphTwo?startDate=${startDate}&endDate=${endDate}`
+      `https://sippro-gmao.fr:8443/displaysensorGraphTwo?startDate=${startDate}&endDate=${endDate}`
     );
     setAvg2(parseFloat(response.data.avg).toFixed(2));
     return response.data.values[0];
@@ -182,7 +182,7 @@ export const ContextProvider = ({ children }) => {
   // Bar Chart 3
   const BarData3 = async () => {
     const response = await axios.get(
-      `http://localhost:8443/displayequipmentOne?startDate=${startDate}&endDate=${endDate}`
+      `https://sippro-gmao.fr:8443/displayequipmentOne?startDate=${startDate}&endDate=${endDate}`
     );
     setAvg3(parseFloat(response.data.avg).toFixed(2));
     return response.data.values[0];
@@ -190,7 +190,7 @@ export const ContextProvider = ({ children }) => {
   // Bar Chart 4
   const BarData4 = async () => {
     const response = await axios.get(
-      `http://localhost:8443/displayequipmentTwo?startDate=${startDate}&endDate=${endDate}`
+      `https://sippro-gmao.fr:8443/displayequipmentTwo?startDate=${startDate}&endDate=${endDate}`
     );
     setAvg4(parseFloat(response.data.avg).toFixed(2));
     return response.data.values[0];
@@ -198,7 +198,7 @@ export const ContextProvider = ({ children }) => {
   // Horizontal Chart 1
   const HorizontalData1 = async () => {
     const response = await axios.get(
-      `http://localhost:8443/displaysensorFailure?startDate=${startDate}&endDate=${endDate}`
+      `https://sippro-gmao.fr:8443/displaysensorFailure?startDate=${startDate}&endDate=${endDate}`
     );
     console.log(`Response: ${response}`);
     console.log(`Response.data: ${response.data}`);
@@ -209,7 +209,7 @@ export const ContextProvider = ({ children }) => {
   // Horizontal Chart 2
   const HorizontalData2 = async () => {
     const response = await axios.get(
-      `http://localhost:8443/displayequipmentFailure?startDate=${startDate}&endDate=${endDate}`
+      `https://sippro-gmao.fr:8443/displayequipmentFailure?startDate=${startDate}&endDate=${endDate}`
     );
     setXYValues2(response.data.values);
     return response.data.values;
