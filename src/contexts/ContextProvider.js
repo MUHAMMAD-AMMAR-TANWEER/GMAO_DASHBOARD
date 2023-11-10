@@ -270,7 +270,7 @@ export const ContextProvider = ({ children }) => {
     setHorizontalbar2(response.data.H2.values)
 
     // Table 1
-        setCompletedData2(response.data.Table1.completed);
+    setCompletedData2(response.data.Table1.completed);
     setRemainingData2(response.data.Table1.remaining);
     setTotalData2(response.data.Table1.total);
     setsnefData2(response.data.Table1.snef);
@@ -278,11 +278,11 @@ export const ContextProvider = ({ children }) => {
     setmairieData2(response.data.Table1.mairie);
     setMaintenanceZefilData2(response.data.Table1.maintenanceZefil);
 
-    setTable2(response.data.Table1)
+    setTable2(response.data.Table1);
 
     //Table 2
 
-            setCompletedData(response.data.Table2.completed);
+    setCompletedData(response.data.Table2.completed);
     setRemainingData(response.data.Table2.remaining);
     setTotalData(response.data.Table2.total);
     setsnefData(response.data.Table2.snef);
@@ -290,16 +290,13 @@ export const ContextProvider = ({ children }) => {
     setmairieData(response.data.Table2.mairie);
     setMaintenanceZefilData(response.data.Table2.maintenanceZefil);
 
-    setTable(response.data.Table2)
+    setTable2(response.data.Table2)
   }
   
   useEffect(() => {
     (async () => {
       if (startDate && endDate) {
         const GeneralData = await generalApi();
-
-
-        
       }
     })();
   }, [startDate, endDate]);

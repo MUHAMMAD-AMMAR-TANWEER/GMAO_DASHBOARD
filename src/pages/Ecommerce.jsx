@@ -80,7 +80,7 @@ const Ecommerce = () => {
   const generatePDF = () => {
     const element = document.getElementById("table-data"); // Replace 'pdf-content' with the ID of the element containing the content you want to convert to PDF
     const opt = {
-      margin: [0, 50, 50, 0],
+      margin: [2.5, 60, 95, 0],
       filename: `${formattedDateStart} - ${formattedDateEnd} Compteurs.pdf`,
       image: { type: "jpeg", quality: 0.98 },
       html2canvas: { scale: 2 },
