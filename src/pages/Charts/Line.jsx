@@ -41,11 +41,11 @@ const Line = () => {
   const generatePDF = () => {
     const element = document.getElementById("line-chart"); // Replace 'pdf-content' with the ID of the element containing the content you want to convert to PDF
     const opt = {
-      margin: [35, 0, 55, 0],
+      margin: [35, 50, 55, 0],
       filename: `${formattedDateStart} - ${formattedDateEnd} Distribution-des-pannes-sur-la-periode.pdf`,
       image: { type: "jpeg", quality: 0.98 },
       html2canvas: { scale: 1 },
-      jsPDF: { unit: "mm", format: "a3", orientation: "landscape" }, // Set orientation to 'landscape'
+      jsPDF: { unit: "mm", format: "a4", orientation: "landscape" }, // Set orientation to 'landscape'
     };
 
     html2pdf().from(element).set(opt).save();

@@ -44,7 +44,7 @@ const Bar = () => {
   const generatePDF = () => {
     const element = document.getElementById("vertical-bar-charts"); // Replace 'pdf-content' with the ID of the element containing the content you want to convert to PDF
     const opt = {
-      margin: [7, 0, 60, 0],
+      margin: [7, 50, 60, 0],
       filename: `${formattedDateStart} - ${formattedDateEnd} Temps-de-reponses.pdf`,
       image: { type: "jpeg", quality: 0.98 },
       html2canvas: { scale: 2 },
@@ -111,7 +111,7 @@ const Bar = () => {
         
       </div>
       <div id="vertical-bar-charts">
-        <div id="Temps moyen de résolution ( Caméras )" className="m-4 md:m-10 mt-24 p-10 bg-white dark:bg-secondary-dark-bg rounded-3xl">
+        <div id="Temps moyen de resolution ( Caméras )" className="m-4 md:m-10 mt-24 p-10 bg-white dark:bg-secondary-dark-bg rounded-3xl">
           <div className="items-center justify-center gap-3 mb-16  mt-4 flex text-xl font-extrabold tracking-tight dark:text-white text-slate-900">
             <img
               src={logo}
@@ -167,7 +167,7 @@ const Bar = () => {
         <div id="Temps moyen de prise en compte ( Caméras )">
           <Bar2 />
         </div>
-        <div id="Temps moyen de résolution ( équipements )">
+        <div id="Temps moyen de resolution ( équipements )">
           <Bar3 />
         </div>
         <div id="Temps moyen de prise en compte ( équipements )">
