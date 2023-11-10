@@ -230,7 +230,7 @@ export const ContextProvider = ({ children }) => {
     });
     setMaxValue1(max_y + 2);
     console.log("Maximum value of y:", max_y);
-    setLine([response.data.Line1[0], response.data.Line1[1]]);
+    setLine([response.data.Line1[0], response.data.Line1[1]])
 
     // LINE 2
     let max_y2 = Number.MIN_SAFE_INTEGER;
@@ -243,31 +243,31 @@ export const ContextProvider = ({ children }) => {
     });
     setMaxValue2(max_y2 + 2);
     console.log("Maximum value of y:", max_y2);
-    setLine2([response.data.Line2[0], response.data.Line2[1]]);
+    setLine2([response.data.Line2[0], response.data.Line2[1]])
 
     // Bar 1
     setAvg1(parseFloat(response.data.Bar1.avg).toFixed(2));
-    setBar1(response.data.Bar1.values[0]);
+    setBar1(response.data.Bar1.values[0])
 
     // Bar 2
     setAvg2(parseFloat(response.data.Bar2.avg).toFixed(2));
-    setBar2(response.data.Bar2.values[0]);
+    setBar2(response.data.Bar2.values[0])
 
     // Bar 3
     setAvg3(parseFloat(response.data.Bar3.avg).toFixed(2));
-    setBar3(response.data.Bar3.values[0]);
+    setBar3(response.data.Bar3.values[0])
 
     // Bar 4
     setAvg4(parseFloat(response.data.Bar4.avg).toFixed(2));
-    setBar4(response.data.Bar4.values[0]);
+    setBar4(response.data.Bar4.values[0])
 
     // Horizontal 1
     setXYValues(response.data.H1.values);
-    setHorizontalbar1(response.data.H1.values);
+    setHorizontalbar1(response.data.H1.values)
 
     // Horizontal 2
     setXYValues2(response.data.H2.values);
-    setHorizontalbar2(response.data.H2.values);
+    setHorizontalbar2(response.data.H2.values)
 
     // Table 1
     setCompletedData2(response.data.Table1.completed);
@@ -290,9 +290,9 @@ export const ContextProvider = ({ children }) => {
     setmairieData(response.data.Table2.mairie);
     setMaintenanceZefilData(response.data.Table2.maintenanceZefil);
 
-    setTable(response.data.Table2);
-  };
-
+    setTable2(response.data.Table2)
+  }
+  
   useEffect(() => {
     (async () => {
       if (startDate && endDate) {
@@ -362,4 +362,4 @@ export const ContextProvider = ({ children }) => {
   );
 };
 
-export const useStateContext = () => useContext(StateContext);
+export const useStateContext = () => useContext(StateContext)
