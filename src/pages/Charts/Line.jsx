@@ -45,7 +45,7 @@ const Line = () => {
       filename: `${formattedDateStart} - ${formattedDateEnd} Distribution-des-pannes-sur-la-periode.pdf`,
       image: { type: "jpeg", quality: 0.98 },
       html2canvas: { scale: 1 },
-      jsPDF: { unit: "mm", format: "a4", orientation: "landscape" }, // Set orientation to 'landscape'
+      jsPDF: { unit: "mm", format: "a3", orientation: "landscape" }, // Set orientation to 'landscape'
     };
 
     html2pdf().from(element).set(opt).save();
